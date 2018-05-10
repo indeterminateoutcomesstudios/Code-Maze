@@ -1,0 +1,12 @@
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\bin\Debug\Lavirint.exe.config
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\bin\Debug\Lavirint.exe
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\bin\Debug\Lavirint.pdb
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.csprojResolveAssemblyReference.cache
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Form1.resources
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Properties.Resources.resources
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.GenerateResource.Cache
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.CoreCompileInputs.cache
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.exe
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.pdb
+c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Igra.resources
+C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.NewGame.resources
