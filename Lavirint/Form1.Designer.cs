@@ -45,11 +45,11 @@
             this.btnNewGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewGame.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnNewGame.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNewGame.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnNewGame.Location = new System.Drawing.Point(95, 135);
+            this.btnNewGame.Location = new System.Drawing.Point(156, 112);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(135, 50);
+            this.btnNewGame.Size = new System.Drawing.Size(181, 70);
             this.btnNewGame.TabIndex = 0;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = false;
@@ -66,11 +66,11 @@
             this.btnInstructions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnInstructions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnInstructions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInstructions.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnInstructions.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnInstructions.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnInstructions.Location = new System.Drawing.Point(95, 247);
+            this.btnInstructions.Location = new System.Drawing.Point(156, 264);
             this.btnInstructions.Name = "btnInstructions";
-            this.btnInstructions.Size = new System.Drawing.Size(135, 50);
+            this.btnInstructions.Size = new System.Drawing.Size(181, 70);
             this.btnInstructions.TabIndex = 1;
             this.btnInstructions.Text = "Instructions";
             this.btnInstructions.UseVisualStyleBackColor = false;
@@ -86,11 +86,11 @@
             this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnQuit.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnQuit.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnQuit.Location = new System.Drawing.Point(95, 303);
+            this.btnQuit.Location = new System.Drawing.Point(156, 340);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(135, 50);
+            this.btnQuit.Size = new System.Drawing.Size(181, 70);
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
@@ -107,11 +107,11 @@
             this.btnLoadGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLoadGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLoadGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadGame.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnLoadGame.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnLoadGame.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnLoadGame.Location = new System.Drawing.Point(95, 191);
+            this.btnLoadGame.Location = new System.Drawing.Point(156, 188);
             this.btnLoadGame.Name = "btnLoadGame";
-            this.btnLoadGame.Size = new System.Drawing.Size(135, 50);
+            this.btnLoadGame.Size = new System.Drawing.Size(181, 70);
             this.btnLoadGame.TabIndex = 3;
             this.btnLoadGame.Text = "Load Game";
             this.btnLoadGame.UseVisualStyleBackColor = false;
@@ -122,11 +122,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 22F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label1.Location = new System.Drawing.Point(124, 24);
+            this.label1.Location = new System.Drawing.Point(208, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 36);
+            this.label1.Size = new System.Drawing.Size(80, 37);
             this.label1.TabIndex = 4;
             this.label1.Text = "Menu";
             // 
@@ -137,7 +137,7 @@
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(324, 465);
+            this.ClientSize = new System.Drawing.Size(495, 507);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLoadGame);

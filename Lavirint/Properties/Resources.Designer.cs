@@ -213,16 +213,6 @@ namespace Lavirint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Prasanje {
-            get {
-                object obj = ResourceManager.GetObject("Prasanje", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Sara_desno_desno {
             get {
                 object obj = ResourceManager.GetObject("Sara_desno_desno", resourceCulture);
