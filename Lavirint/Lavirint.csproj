@@ -58,6 +58,7 @@
       <DependentUpon>Igra.cs</DependentUpon>
     </Compile>
     <Compile Include="Karakter.cs" />
+    <Compile Include="Lybrinth.cs" />
     <Compile Include="NewGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Yes-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\path.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

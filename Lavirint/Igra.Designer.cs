@@ -40,6 +40,7 @@
             this.MinimizeBox = false;
             this.Name = "Igra";
             this.Text = "Igra";
+            this.Load += new System.EventHandler(this.Igra_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Igra_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Igra_KeyDown);
             this.ResumeLayout(false);

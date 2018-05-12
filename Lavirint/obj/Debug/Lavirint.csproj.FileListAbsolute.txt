@@ -10,3 +10,15 @@ c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Deb
 c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.pdb
 c:\users\nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Igra.resources
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.NewGame.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\bin\Debug\Lavirint.exe.config
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\bin\Debug\Lavirint.exe
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\bin\Debug\Lavirint.pdb
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.csprojResolveAssemblyReference.cache
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Form1.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Igra.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.NewGame.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Properties.Resources.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.GenerateResource.Cache
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.CoreCompileInputs.cache
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.exe
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.pdb

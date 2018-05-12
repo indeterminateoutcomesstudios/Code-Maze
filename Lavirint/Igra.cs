@@ -15,6 +15,18 @@ namespace Lavirint
     {
         Karakter karakter;
         Image img;
+        Image borderImage;
+        Image pathImage;
+        Lybrinth lavirint = new Lybrinth(20);
+
+        private new Image Resize(Image img, int iWidth, int iHeight)
+        {
+            Bitmap bmp = new Bitmap(iWidth, iHeight);
+            Graphics graphic = Graphics.FromImage((Image)bmp);
+            graphic.DrawImage(img, 0, 0, iWidth, iHeight);
+
+            return (Image)bmp;
+        }
 
         public Igra(string ime)
         {
@@ -29,13 +41,36 @@ namespace Lavirint
             {
                 img = Resources.Sara_gore_desno;
             }
+
+            borderImage = Resources.border;
+            pathImage = Resources.path;
+            borderImage = Resize(borderImage, 30, 30);
+            pathImage = Resize(pathImage, 30, 30);
         }
 
         private void Igra_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            g.Clear(Color.White);
-            g.DrawImageUnscaled(img, karakter.X, karakter.Y);
+            Graphics g1 = e.Graphics;
+            g1.Clear(Color.White);
+            for (int i = 0; i < lavirint.Maze.Length; i++)
+            {
+                for (int j = 0; j < lavirint.Maze[i].Length; j++)
+                {
+                    if (lavirint.Maze[i][j])
+                    {
+                        g1.DrawImageUnscaled(pathImage, pathImage.Height * j, pathImage.Width * i);
+                    }
+                    else
+                    {
+                        g1.DrawImageUnscaled(borderImage, borderImage.Height * j, borderImage.Width * i);
+                    }
+                }
+            }
+
+         
+            g1.DrawImageUnscaled(img, karakter.X, karakter.Y);
+
+
         }
 
         private void Igra_KeyDown(object sender, KeyEventArgs e)
@@ -94,6 +129,11 @@ namespace Lavirint
 
             karakter.Move();
             Invalidate();
+        }
+
+        private void Igra_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

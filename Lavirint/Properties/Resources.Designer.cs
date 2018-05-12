@@ -63,6 +63,16 @@ namespace Lavirint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap border {
+            get {
+                object obj = ResourceManager.GetObject("border", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hover_btn {
             get {
                 object obj = ResourceManager.GetObject("Hover_btn", resourceCulture);
@@ -196,6 +206,16 @@ namespace Lavirint.Properties {
         internal static System.Drawing.Bitmap Normal_btn {
             get {
                 object obj = ResourceManager.GetObject("Normal_btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap path {
+            get {
+                object obj = ResourceManager.GetObject("path", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
