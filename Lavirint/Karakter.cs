@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Lavirint
 {
@@ -46,12 +47,11 @@ namespace Lavirint
             {
                 int j = (X + 50 + pridvizuvanje - igra.PocetokX) / Igra.goleminaPole;
                 int i = (Y + 70 - igra.PocetokY) / Igra.goleminaPole;
-                if (igra.lavirint.Maze[i][j])
-                {
-                    X += pridvizuvanje;
-                    return true;
-                }
-
+                    if (igra.lavirint.Maze[i][j])
+                    {
+                        X += pridvizuvanje;
+                        return true;
+                    }
             }
             else if (Nasoka == Nasoka.Levo)
             {

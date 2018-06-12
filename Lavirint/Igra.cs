@@ -17,7 +17,6 @@ namespace Lavirint
         Image img;
         Image borderImage;
         Image pathImage;
-        public int MazeDimensions { get; set; }
         public Labyrinth lavirint { get; set; }
         public static int goleminaPole = 40;
         Form1 parent;
@@ -33,15 +32,14 @@ namespace Lavirint
             return (Image)bmp;
         }
 
-        public Igra(string ime,Form1 parent, int MazeDimensions=40)
+        public Igra(string ime,Form1 parent,int size=20)
         {
             InitializeComponent();
             DoubleBuffered = true;
 
             this.parent = parent;
-            this.MazeDimensions = MazeDimensions;
-            lavirint = new Labyrinth(MazeDimensions);
-            karakter = new Karakter(ime, -5, -5);
+            lavirint = new Labyrinth(size);
+            karakter = new Karakter(ime, 12, -5);
 
             if (karakter.Ime.Equals("Lidia"))
             {
@@ -68,11 +66,11 @@ namespace Lavirint
                 {
                     if (lavirint.Maze[i][j])
                     {
-                        g1.DrawImageUnscaled(pathImage, PocetokX+ pathImage.Width * j, PocetokY +pathImage.Height * i);
+                        g1.DrawImageUnscaled(pathImage, PocetokX+ goleminaPole * j, PocetokY + goleminaPole * i);
                     }
                     else
                     {
-                        g1.DrawImageUnscaled(borderImage, PocetokX + borderImage.Width * j, PocetokY + borderImage.Height * i);
+                        g1.DrawImageUnscaled(borderImage, PocetokX + goleminaPole * j, PocetokY + goleminaPole * i);
                     }
                 }
             }
@@ -81,9 +79,9 @@ namespace Lavirint
 
         private void pomestiEkran(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Right && karakter.X >= 350 && PocetokX>(600 - (1 + MazeDimensions) * goleminaPole))
+            if (e.KeyCode == Keys.Right && karakter.X >= 350 && PocetokX>(600 - lavirint.cols * goleminaPole))
             {
-                    PocetokX =Math.Max (PocetokX-Karakter.pridvizuvanje,600-(1+MazeDimensions)*goleminaPole);
+                    PocetokX =Math.Max (PocetokX-Karakter.pridvizuvanje, 600-lavirint.cols *goleminaPole);
                     karakter.X -= Karakter.pridvizuvanje;
             }
             if (e.KeyCode == Keys.Left && karakter.X >= 150 && PocetokX < 0)
@@ -91,9 +89,9 @@ namespace Lavirint
                     PocetokX = Math.Min(PocetokX + Karakter.pridvizuvanje, 0);
                     karakter.X += Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Down && karakter.Y >= 350  && PocetokY> 600 - (MazeDimensions +2) * goleminaPole)
+            if (e.KeyCode == Keys.Down && karakter.Y >= 350  && PocetokY> 600 - lavirint.rows* goleminaPole)
             {
-                PocetokY =Math.Max(PocetokY - Karakter.pridvizuvanje, 600 - ( MazeDimensions+2) * goleminaPole);
+                PocetokY =Math.Max(PocetokY - Karakter.pridvizuvanje, 600 - lavirint.rows* goleminaPole);
                 karakter.Y -= Karakter.pridvizuvanje;
             }
             if (e.KeyCode == Keys.Up && karakter.Y >= 150 && PocetokY < 0)
