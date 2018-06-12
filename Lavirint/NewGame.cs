@@ -13,22 +13,23 @@ namespace Lavirint
 {
     public partial class NewGame : Form
     {
-        public NewGame()
+        Form1 parent;
+        public NewGame(Form1 parent)
         {
+            this.parent = parent;
             InitializeComponent();
             btnStart.Enabled = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Show();
+            parent.Show();
             this.Close();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Igra igra = new Igra(lblPlayer.Text);
+            Igra igra = new Igra(lblPlayer.Text,parent);
             igra.Show();
             this.Close();
         }

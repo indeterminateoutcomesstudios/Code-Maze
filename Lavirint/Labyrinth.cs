@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lavirint
 {
-    class Lybrinth
+    public class Labyrinth
     {
            Random rand = new Random();
             public int Dimensions { get; set; }
@@ -17,17 +17,17 @@ namespace Lavirint
             public int[] Finish { get; set; }
             public string mazeString { get; set; }
 
-            public Lybrinth(int dimensions)
+            public Labyrinth(int dimensions)
             {
                 Dimensions = dimensions;
-                Start = new int[2] { dimensions - 2, 0 };
-                Finish = new int[2] { 1, dimensions - 1 };
+                Start = new int[2] { 1, 0 };
+                Finish = new int[2] { dimensions-2, dimensions-1 };
                 Maze = MazeGenerator(width: dimensions, height: dimensions);
                 mazeString = ArrayToString(Maze, "   ");
 
 
             }
-            public bool[][] MazeGenerator(int width = 10, int height = 10, decimal complexity = 0.75m, decimal density = 0.75m)
+            public bool[][] MazeGenerator(int width = 10, int height = 10, decimal complexity = 0.99m, decimal density = 0.99m)
             {
                 int shape1 = (int)Math.Floor((decimal)height / 2) * 2 + 1;
                 int shape2 = (int)Math.Floor((decimal)width / 2) * 2 + 1;
@@ -50,7 +50,7 @@ namespace Lavirint
                     z[0][i] = false;
                     z[shape1 - 1][i] = false;
                 }
-                for (int i = 0; i < shape1 - 2; i++)
+                for (int i = 2; i < shape1 ; i++)
                 {
                     z[i][0] = false;
                     z[shape1 - 1 - i][shape2 - 1] = false;

@@ -17,7 +17,12 @@ namespace Lavirint
         Image img;
         Image borderImage;
         Image pathImage;
-        Lybrinth lavirint = new Lybrinth(20);
+        public int MazeDimensions { get; set; }
+        public Labyrinth lavirint { get; set; }
+        public static int goleminaPole = 40;
+        Form1 parent;
+        public int PocetokX { get; set; }
+        public int PocetokY { get; set; }
 
         private new Image Resize(Image img, int iWidth, int iHeight)
         {
@@ -28,24 +33,29 @@ namespace Lavirint
             return (Image)bmp;
         }
 
-        public Igra(string ime)
+        public Igra(string ime,Form1 parent, int MazeDimensions=40)
         {
             InitializeComponent();
             DoubleBuffered = true;
-            karakter = new Karakter(ime, 1, 1);
+
+            this.parent = parent;
+            this.MazeDimensions = MazeDimensions;
+            lavirint = new Labyrinth(MazeDimensions);
+            karakter = new Karakter(ime, -5, -5);
+
             if (karakter.Ime.Equals("Lidia"))
             {
-                img = Resources.lidia_gore_desno;
+                img = Resources.lidia_dole_desno;
             }
             else if (karakter.Ime.Equals("Sara"))
             {
-                img = Resources.Sara_gore_desno;
+                img = Resources.Sara_dole_desno;
             }
-
+           
             borderImage = Resources.border;
             pathImage = Resources.path;
-            borderImage = Resize(borderImage, 30, 30);
-            pathImage = Resize(pathImage, 30, 30);
+            borderImage = Resize(borderImage, goleminaPole, goleminaPole);
+            pathImage = Resize(pathImage, goleminaPole, goleminaPole);
         }
 
         private void Igra_Paint(object sender, PaintEventArgs e)
@@ -58,23 +68,50 @@ namespace Lavirint
                 {
                     if (lavirint.Maze[i][j])
                     {
-                        g1.DrawImageUnscaled(pathImage, pathImage.Height * j, pathImage.Width * i);
+                        g1.DrawImageUnscaled(pathImage, PocetokX+ pathImage.Width * j, PocetokY +pathImage.Height * i);
                     }
                     else
                     {
-                        g1.DrawImageUnscaled(borderImage, borderImage.Height * j, borderImage.Width * i);
+                        g1.DrawImageUnscaled(borderImage, PocetokX + borderImage.Width * j, PocetokY + borderImage.Height * i);
                     }
                 }
             }
-
-         
             g1.DrawImageUnscaled(img, karakter.X, karakter.Y);
+        }
 
-
+        private void pomestiEkran(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right && karakter.X >= 350 && PocetokX>(600 - (1 + MazeDimensions) * goleminaPole))
+            {
+                    PocetokX =Math.Max (PocetokX-Karakter.pridvizuvanje,600-(1+MazeDimensions)*goleminaPole);
+                    karakter.X -= Karakter.pridvizuvanje;
+            }
+            if (e.KeyCode == Keys.Left && karakter.X >= 150 && PocetokX < 0)
+            {
+                    PocetokX = Math.Min(PocetokX + Karakter.pridvizuvanje, 0);
+                    karakter.X += Karakter.pridvizuvanje;
+            }
+            if (e.KeyCode == Keys.Down && karakter.Y >= 350  && PocetokY> 600 - (MazeDimensions +2) * goleminaPole)
+            {
+                PocetokY =Math.Max(PocetokY - Karakter.pridvizuvanje, 600 - ( MazeDimensions+2) * goleminaPole);
+                karakter.Y -= Karakter.pridvizuvanje;
+            }
+            if (e.KeyCode == Keys.Up && karakter.Y >= 150 && PocetokY < 0)
+            {
+                    PocetokY = Math.Min(PocetokY + Karakter.pridvizuvanje, 0);
+                    karakter.Y += Karakter.pridvizuvanje;
+            }
         }
 
         private void Igra_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                parent.Show();
+
+            }
+
             if (karakter.Ime.Equals("Lidia"))
             {
                 switch (e.KeyCode)
@@ -126,8 +163,10 @@ namespace Lavirint
                         break;
                 }
             }
-
-            karakter.Move();
+            if(karakter.Move(this))
+                pomestiEkran(e);
+           
+            
             Invalidate();
         }
 

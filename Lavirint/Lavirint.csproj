@@ -58,7 +58,7 @@
       <DependentUpon>Igra.cs</DependentUpon>
     </Compile>
     <Compile Include="Karakter.cs" />
-    <Compile Include="Lybrinth.cs" />
+    <Compile Include="Labyrinth.cs" />
     <Compile Include="NewGame.cs">
       <SubType>Form</SubType>
     </Compile>

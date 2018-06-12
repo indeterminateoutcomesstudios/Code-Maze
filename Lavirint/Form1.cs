@@ -20,8 +20,8 @@ namespace Lavirint
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            NewGame game = new NewGame();
-            game.Show();
+            NewGame game = new NewGame(this);
+            game.Show(this);
             this.Hide();
         }
 
@@ -68,6 +68,20 @@ namespace Lavirint
         private void btnNewGame_MouseLeave(object sender, EventArgs e)
         {
             this.btnNewGame.BackgroundImage = Resources.Normal_btn;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //ova  ne raboti :( popravete ako mozete :D <3
+       private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode ==Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Lavirint
         public bool DesnaNoga { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public static int pridvizuvanje = 10;
 
         public Karakter(string ime, int x, int y)
         {
@@ -38,25 +39,51 @@ namespace Lavirint
             Nasoka = nasoka;
         }
 
-        public void Move()
+        public Boolean Move(Igra igra)
         {
             DesnaNoga = !DesnaNoga;
-
-            switch (Nasoka)
+            if (Nasoka == Nasoka.Desno)
             {
-                case Nasoka.Desno:
-                    X += 16;
-                    break;
-                case Nasoka.Levo:
-                    X -= 16;
-                    break;
-                case Nasoka.Gore:
-                    Y -= 16;
-                    break;
-                case Nasoka.Dole:
-                    Y += 16;
-                    break;
+                int j = (X + 50 + pridvizuvanje - igra.PocetokX) / Igra.goleminaPole;
+                int i = (Y + 70 - igra.PocetokY) / Igra.goleminaPole;
+                if (igra.lavirint.Maze[i][j])
+                {
+                    X += pridvizuvanje;
+                    return true;
+                }
+
             }
+            else if (Nasoka == Nasoka.Levo)
+            {
+                int j = (X + 32 - pridvizuvanje - igra.PocetokX) / Igra.goleminaPole;
+                int i = (Y + 70 - igra.PocetokY) / Igra.goleminaPole;
+                if (igra.lavirint.Maze[i][j])
+                {
+                    X -= pridvizuvanje;
+                    return true;
+                }
+
+            }
+            else if (Nasoka == Nasoka.Gore)
+            {
+                int j = (X + 32 - igra.PocetokX) / Igra.goleminaPole;
+                int i = (Y + 70 - pridvizuvanje - igra.PocetokY) / Igra.goleminaPole;
+                if (igra.lavirint.Maze[i][j])
+                {
+                    Y -= pridvizuvanje;
+                    return true;
+                }
+            }
+            else if (Nasoka == Nasoka.Dole)
+            {
+                int j = (X + 32 - igra.PocetokX) / Igra.goleminaPole;
+                int i = (Y + 70 + pridvizuvanje - igra.PocetokY) / Igra.goleminaPole;
+                if (igra.lavirint.Maze[i][j]) { 
+                    Y += pridvizuvanje;
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
