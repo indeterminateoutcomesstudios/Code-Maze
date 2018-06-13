@@ -60,9 +60,9 @@ namespace Lavirint
         {
             Graphics g1 = e.Graphics;
             g1.Clear(Color.White);
-            for (int i = 0; i < lavirint.Maze.Length; i++)
+            for (int i = 0; i < lavirint.cols; i++)
             {
-                for (int j = 0; j < lavirint.Maze[i].Length; j++)
+                for (int j = 0; j < lavirint.rows; j++)
                 {
                     if (lavirint.Maze[i][j])
                     {
@@ -108,6 +108,18 @@ namespace Lavirint
                 this.Close();
                 parent.Show();
 
+            }
+            if(e.KeyCode == Keys.H)
+            {
+                int j = (karakter.X + 50 - PocetokX) / Igra.goleminaPole;
+                int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
+                lavirint.Start = lavirint.MazeofNodes[i][j];
+                var astar = new Astar(lavirint.Start, lavirint.Goal);
+                var result = astar.Run();
+
+                MessageBox.Show(Labyrinth.GetDirections(astar.GetPath()));
+                astar = null;
+                lavirint.Start = null; 
             }
 
             if (karakter.Ime.Equals("Lidia"))

@@ -19,10 +19,16 @@ namespace Lavirint
         int act_rows;
         int act_cols;
 
+        public Node[][] MazeofNodes;
+        public Node Start { get; set; }
+        public Node Goal { get; set; }
+
         public Boolean[][] Maze;
-        
+
         public Labyrinth(int size)
         {
+
+
 
             //initialize instance variables
             rows = size * 2 + 1;
@@ -55,7 +61,31 @@ namespace Lavirint
                 Maze[0][i] = MAZE_WALL;
                 Maze[rows - 1][i] = MAZE_WALL;
             }
+
+            MazeofNodes = new Node[rows][];
+
+            for (int i = 0; i < rows; i++)
+            {
+                MazeofNodes[i] = new Node[cols]; // Create inner array
+            }
+
             makeMaze();
+            makeNodes();
+        }
+
+        public void makeNodes()
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    MazeofNodes[i][j] = new Node(this, i, j, !Maze[i][j]);
+
+                }
+            }
+            Goal = MazeofNodes[rows - 2][cols - 2];
+            //Start = MazeofNodes[1][1];
+
         }
 
         public void makeMaze(int left, int right, int top, int bottom)
@@ -165,27 +195,105 @@ namespace Lavirint
         }
 
 
-        public static string ArrayToString(IList array, string delimeter)
+        public static string ArrayToString(IEnumerable<INode> path, string delimeter)
         {
-            string outputString = " ";
+            string outputString = "";
+            IEnumerator enumerator = path.GetEnumerator();
 
-            for (int i = 0; i < array.Count; i++)
+            while (enumerator.MoveNext())
             {
-                if (array[i] is IList)
-                {
-                    //Recursively convert nested arrays to string
-                    outputString += ArrayToString((IList)array[i], delimeter);
-                }
-                else
-                {
-                    outputString += (bool)array[i] ? "1" : "0";
-                }
-                if (i != array.Count - 1)
-                    outputString += delimeter;
-                else
-                    outputString += "\n";
+                Node node = enumerator.Current as Node;
+                outputString += node.ToString() + " ";
             }
             return outputString;
+        }
+
+        public string Print(IEnumerable<INode> path)
+        {
+            var output = "";
+            for (var i = 0; i < cols; i++)
+            {
+                for (var j = 0; j < rows; j++)
+                {
+                    output += MazeofNodes[i][j].Print(Start, Goal, path);
+                }
+                output += "\n";
+            }
+            return output;
+        }
+
+        public static string GetDirections(IEnumerable<INode> path)
+        {
+
+            string outputString = "";
+            IEnumerator enumerator = null;
+             enumerator = path.GetEnumerator();
+            enumerator.MoveNext();
+            Node current = enumerator.Current as Node;
+            int x = current.X;
+            int y = current.Y;
+            int brojNaDvizenja = 1;
+            String nasoka1 = null;
+            String nasoka2 = null;
+            enumerator.MoveNext();
+            Node next = enumerator.Current as Node;
+            bool izlezi = true;
+            if (next.X == x && next.Y == y - 1)
+                nasoka1 = "left";
+            if (next.X == x && next.Y == y + 1)
+                nasoka1 = "right";
+            if (next.X == x - 1 && next.Y == y)
+                nasoka1 = "up";
+            if (next.X == x + 1 && next.Y == y)
+                nasoka1 = "down";
+            Node node = current;
+            Node previous = current;
+            while (izlezi)
+            {
+                previous = node;
+                enumerator.MoveNext();
+                node = enumerator.Current as Node;
+                if (nasoka1 == "left")
+                {
+                    if (node.X == x && node.Y == y - 1 - brojNaDvizenja)
+                        brojNaDvizenja++;
+                    else
+                        izlezi = false;
+                }
+                if (nasoka1 == "right")
+                {
+                    if (node.X == x && node.Y == y + 1 + brojNaDvizenja)
+                        brojNaDvizenja++;
+                    else
+                        izlezi = false;
+                }
+                if (nasoka1 == "up")
+                {
+                    if (node.X == x - 1 - brojNaDvizenja && node.Y == y)
+                        brojNaDvizenja++;
+                    else
+                        izlezi = false;
+                }
+                if (nasoka1 == "down")
+                {
+                    if (node.X == x + 1 + brojNaDvizenja && node.Y == y)
+                        brojNaDvizenja++;
+                    else
+                        izlezi = false;
+                }
+            }
+
+
+            if (node.X == previous.X && node.Y == previous.Y - 1)
+                nasoka2 = "left";
+            if (node.X == previous.X && node.Y == previous.Y + 1)
+                nasoka2 = "right";
+            if (node.X == previous.X - 1 && node.Y == previous.Y)
+                nasoka2 = "up";
+            if (node.X == previous.X + 1 && node.Y == previous.Y)
+                nasoka2 = "down";
+
+            return String.Format("Go {0} {1} steps and then turn {2}", nasoka1, brojNaDvizenja, nasoka2);
         }
     }
 }
