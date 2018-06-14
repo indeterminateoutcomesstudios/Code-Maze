@@ -21,15 +21,13 @@ namespace Lavirint
 
         public Node[][] MazeofNodes;
         public Node Start { get; set; }
+        public Node Curret { get; set; }
         public Node Goal { get; set; }
 
         public Boolean[][] Maze;
 
         public Labyrinth(int size)
         {
-
-
-
             //initialize instance variables
             rows = size * 2 + 1;
             cols = size * 2 + 1;
@@ -80,12 +78,10 @@ namespace Lavirint
                 for (int j = 0; j < cols; j++)
                 {
                     MazeofNodes[i][j] = new Node(this, i, j, !Maze[i][j]);
-
                 }
             }
-            Goal = MazeofNodes[rows - 2][cols - 2];
-            //Start = MazeofNodes[1][1];
-
+            Goal = MazeofNodes[rows - 2][cols - 1];
+            Start = MazeofNodes[1][1];
         }
 
         public void makeMaze(int left, int right, int top, int bottom)
@@ -95,7 +91,6 @@ namespace Lavirint
 
             if (width > 2 && height > 2)
             {
-
                 if (width > height)
                     divideVertical(left, right, top, bottom);
 
@@ -130,18 +125,13 @@ namespace Lavirint
 
         private void divideVertical(int left, int right, int top, int bottom)
         {
-           
-            //find a random point to divide at
-            //must be even to draw a wall there
             int divide = left + 2 + rand.Next(0, (right - left - 1) / 2) * 2;
-
-            //draw a line at the halfway point
+            
             for (int i = top; i < bottom; i++)
             {
                 Maze[i][divide] = MAZE_WALL;
             }
 
-            //get a random odd integer between top and bottom and clear it
             int clearSpace = top + rand.Next(0, (bottom - top) / 2) * 2 + 1;
 
             Maze[clearSpace][divide] = MAZE_PATH;
@@ -152,147 +142,78 @@ namespace Lavirint
 
         private void divideHorizontal(int left, int right, int top, int bottom)
         {
-         
-            //find a random point to divide at
-            //must be even to draw a wall there
             int divide = top + 2 + rand.Next(0, (bottom - top - 1) / 2) * 2;
             if (divide % 2 == 1)
                 divide++;
-
-            //draw a line at the halfway point
+            
             for (int i = left; i < right; i++)
             {
                 Maze[divide][i] = MAZE_WALL;
             }
-
-            //get a random odd integer between left and right and clear it
+            
             int clearSpace = left + rand.Next(0, (right - left) / 2) * 2 + 1;
 
             Maze[divide][clearSpace] = MAZE_PATH;
-
-            //recur for both parts of the newly split section
+            
             makeMaze(left, right, top, divide);
             makeMaze(left, right, divide, bottom);
         }
 
         private void makeOpenings()
         {
-
-            /*Random rand = new Random(); //two different random number generators
-            Random rand2 = new Random();//just in case
-
-            //a random location for the entrance and exit
-            int entrance_row = rand.Next(0, act_rows - 1) * 2 + 1;
-            int exit_row = rand2.Next(0, act_rows - 1) * 2 + 1;
-
-            //clear the location
-            Maze[entrance_row][0] = MAZE_PATH;
-            Maze[exit_row][cols - 1] = MAZE_PATH;*/
             Maze[1][0] = MAZE_PATH;
             Maze[rows - 2][cols - 1] = MAZE_PATH;
-
         }
-
-
-        public static string ArrayToString(IEnumerable<INode> path, string delimeter)
+        
+        
+        public static string nasoka(Node first, Node second)
         {
-            string outputString = "";
-            IEnumerator enumerator = path.GetEnumerator();
-
-            while (enumerator.MoveNext())
-            {
-                Node node = enumerator.Current as Node;
-                outputString += node.ToString() + " ";
-            }
-            return outputString;
-        }
-
-        public string Print(IEnumerable<INode> path)
-        {
-            var output = "";
-            for (var i = 0; i < cols; i++)
-            {
-                for (var j = 0; j < rows; j++)
-                {
-                    output += MazeofNodes[i][j].Print(Start, Goal, path);
-                }
-                output += "\n";
-            }
-            return output;
+            if (second.X == first.X && second.Y == first.Y - 1)
+                return "left";
+            if (second.X == first.X && second.Y == first.Y + 1)
+                return "right";
+            if (second.X == first.X - 1 && second.Y == first.Y)
+                return "up";
+            if (second.X == first.X + 1 && second.Y == first.Y)
+                return "down";
+            return "not neighbours";
         }
 
         public static string GetDirections(IEnumerable<INode> path)
         {
-
-            string outputString = "";
-            IEnumerator enumerator = null;
-             enumerator = path.GetEnumerator();
-            enumerator.MoveNext();
-            Node current = enumerator.Current as Node;
-            Node previous = current;
-            int x = current.X;
-            int y = current.Y;
             int brojNaDvizenja = 1;
             String nasoka1 = null;
-            String nasoka2 = null;
-            enumerator.MoveNext();
-            Node next = enumerator.Current as Node;
-            bool izlezi = true;
-            if (next.X == x && next.Y == y - 1)
-                nasoka1 = "left";
-            if (next.X == x && next.Y == y + 1)
-                nasoka1 = "right";
-            if (next.X == x - 1 && next.Y == y)
-                nasoka1 = "up";
-            if (next.X == x + 1 && next.Y == y)
-                nasoka1 = "down";
-            Node node = next;
-            while (izlezi )
+            String nasoka2 = "";
+            Node start=null;
+            Node next=null;
+           
+            IEnumerator enumerator = path.GetEnumerator();
+            if(enumerator.MoveNext())
+                 start = enumerator.Current as Node;
+            if(enumerator.MoveNext())
+                 next = enumerator.Current as Node;
+            if (start == null || next == null)
+                return "Sorry, can't help you";
+            nasoka1 = nasoka(start, next);
+
+            
+            Node previous = next;
+            while ( enumerator.MoveNext())
             {
-                previous = node;
-                enumerator.MoveNext();
-                node = enumerator.Current as Node;
-                if (nasoka1 == "left")
+                next = enumerator.Current as Node;
+                if (nasoka1 == nasoka(previous, next))
+                    brojNaDvizenja++;
+                else
                 {
-                    if (node.X == x && node.Y == y - 1 - brojNaDvizenja)
-                        brojNaDvizenja++;
-                    else
-                        izlezi = false;
+                    nasoka2 = null;
+                    break;
                 }
-                if (nasoka1 == "right")
-                {
-                    if (node.X == x && node.Y == y + 1 + brojNaDvizenja)
-                        brojNaDvizenja++;
-                    else
-                        izlezi = false;
-                }
-                if (nasoka1 == "up")
-                {
-                    if (node.X == x - 1 - brojNaDvizenja && node.Y == y)
-                        brojNaDvizenja++;
-                    else
-                        izlezi = false;
-                }
-                if (nasoka1 == "down")
-                {
-                    if (node.X == x + 1 + brojNaDvizenja && node.Y == y)
-                        brojNaDvizenja++;
-                    else
-                        izlezi = false;
-                }
+                previous = next;
             }
 
-
-            if (node.X == previous.X && node.Y == previous.Y - 1)
-                nasoka2 = "left";
-            if (node.X == previous.X && node.Y == previous.Y + 1)
-                nasoka2 = "right";
-            if (node.X == previous.X - 1 && node.Y == previous.Y)
-                nasoka2 = "up";
-            if (node.X == previous.X + 1 && node.Y == previous.Y)
-                nasoka2 = "down";
-
-            return String.Format("Go {0} {1} steps and then turn {2}", nasoka1, brojNaDvizenja, nasoka2);
+            if(nasoka2==null)
+                nasoka2 = "and then turn "+nasoka(previous, next);
+            return String.Format("Go {0} {1} blocs {2}", nasoka1, brojNaDvizenja, nasoka2);
         }
     }
 }

@@ -28,11 +28,10 @@ namespace Lavirint
             Bitmap bmp = new Bitmap(iWidth, iHeight);
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.DrawImage(img, 0, 0, iWidth, iHeight);
-
             return (Image)bmp;
         }
 
-        public Igra(string ime,Form1 parent,int size=15)
+        public Igra(string ime,Form1 parent,int size=20)
         {
             InitializeComponent();
             DoubleBuffered = true;
@@ -65,36 +64,32 @@ namespace Lavirint
                 for (int j = 0; j < lavirint.rows; j++)
                 {
                     if (lavirint.Maze[i][j])
-                    {
-                        g1.DrawImageUnscaled(pathImage, PocetokX+ goleminaPole * j, PocetokY + goleminaPole * i);
-                    }
+                        g1.DrawImageUnscaled(pathImage, PocetokX+ goleminaPole * j, PocetokY + goleminaPole * i);                    
                     else
-                    {
                         g1.DrawImageUnscaled(borderImage, PocetokX + goleminaPole * j, PocetokY + goleminaPole * i);
-                    }
                 }
             }
             g1.DrawImageUnscaled(img, karakter.X, karakter.Y);
         }
 
-        private void pomestiEkran(KeyEventArgs e)
+        private void pomestiEkran(KeyEventArgs e, Nasoka nasoka)
         {
-            if (e.KeyCode == Keys.Right && karakter.X >= 350 && PocetokX>(600 - lavirint.cols * goleminaPole))
+            if (nasoka== Nasoka.Desno && karakter.X >= 350 && PocetokX>(600 - lavirint.cols * goleminaPole))
             {
                     PocetokX =Math.Max (PocetokX-Karakter.pridvizuvanje, 600-lavirint.cols *goleminaPole);
                     karakter.X -= Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Left && karakter.X <= 250 && PocetokX < 0)
+            if (nasoka==Nasoka.Levo && karakter.X <= 250 && PocetokX < 0)
             {
                     PocetokX = Math.Min(PocetokX + Karakter.pridvizuvanje, 0);
                     karakter.X += Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Down && karakter.Y >= 350  && PocetokY> (600 - (lavirint.rows)* goleminaPole))
+            if (nasoka == Nasoka.Dole && karakter.Y >= 350  && PocetokY> (600 - (lavirint.rows)* goleminaPole))
             {
                 PocetokY =Math.Max(PocetokY - Karakter.pridvizuvanje, 600 - lavirint.rows* goleminaPole);
                 karakter.Y -= Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Up && karakter.Y <= 250 && PocetokY < 0)
+            if (nasoka == Nasoka.Gore && karakter.Y <= 250 && PocetokY < 0)
             {
                     PocetokY = Math.Min(PocetokY + Karakter.pridvizuvanje, 0);
                     karakter.Y += Karakter.pridvizuvanje;
@@ -106,15 +101,13 @@ namespace Lavirint
             int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
             lavirint.makeNodes();
             lavirint.Start = lavirint.MazeofNodes[i][j];
-            lavirint.Goal = lavirint.MazeofNodes[lavirint.rows - 2][lavirint.cols - 2];
             var astar = new Astar(lavirint.Start, lavirint.Goal);
             var state = astar.Run();
-
-
-            MessageBox.Show(String.Format("{0} ", Labyrinth.GetDirections(astar.GetPath())));
-            astar = null;
-            lavirint.Start = null;
-            state = State.Searching;
+            
+            MessageBox.Show(String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())));
+            //astar = null;
+            //lavirint.Start = null;
+            //state = State.Searching;
         }
 
         private void Igra_KeyDown(object sender, KeyEventArgs e)
@@ -182,7 +175,7 @@ namespace Lavirint
                 }
             }
             if(karakter.Move(this))
-                pomestiEkran(e);
+                pomestiEkran(e,karakter.Nasoka);
            
             
             Invalidate();
