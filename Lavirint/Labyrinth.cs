@@ -181,7 +181,7 @@ namespace Lavirint
         private void makeOpenings()
         {
 
-            Random rand = new Random(); //two different random number generators
+            /*Random rand = new Random(); //two different random number generators
             Random rand2 = new Random();//just in case
 
             //a random location for the entrance and exit
@@ -190,7 +190,9 @@ namespace Lavirint
 
             //clear the location
             Maze[entrance_row][0] = MAZE_PATH;
-            Maze[exit_row][cols - 1] = MAZE_PATH;
+            Maze[exit_row][cols - 1] = MAZE_PATH;*/
+            Maze[1][0] = MAZE_PATH;
+            Maze[rows - 2][cols - 1] = MAZE_PATH;
 
         }
 

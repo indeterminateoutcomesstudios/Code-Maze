@@ -32,7 +32,7 @@ namespace Lavirint
             return (Image)bmp;
         }
 
-        public Igra(string ime,Form1 parent,int size=20)
+        public Igra(string ime,Form1 parent,int size=15)
         {
             InitializeComponent();
             DoubleBuffered = true;
@@ -84,17 +84,17 @@ namespace Lavirint
                     PocetokX =Math.Max (PocetokX-Karakter.pridvizuvanje, 600-lavirint.cols *goleminaPole);
                     karakter.X -= Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Left && karakter.X >= 150 && PocetokX < 0)
+            if (e.KeyCode == Keys.Left && karakter.X <= 250 && PocetokX < 0)
             {
                     PocetokX = Math.Min(PocetokX + Karakter.pridvizuvanje, 0);
                     karakter.X += Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Down && karakter.Y >= 350  && PocetokY> 600 - lavirint.rows* goleminaPole)
+            if (e.KeyCode == Keys.Down && karakter.Y >= 350  && PocetokY> (600 - (lavirint.rows)* goleminaPole))
             {
                 PocetokY =Math.Max(PocetokY - Karakter.pridvizuvanje, 600 - lavirint.rows* goleminaPole);
                 karakter.Y -= Karakter.pridvizuvanje;
             }
-            if (e.KeyCode == Keys.Up && karakter.Y >= 150 && PocetokY < 0)
+            if (e.KeyCode == Keys.Up && karakter.Y <= 250 && PocetokY < 0)
             {
                     PocetokY = Math.Min(PocetokY + Karakter.pridvizuvanje, 0);
                     karakter.Y += Karakter.pridvizuvanje;
@@ -115,9 +115,9 @@ namespace Lavirint
                 int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
                 lavirint.Start = lavirint.MazeofNodes[i][j];
                 var astar = new Astar(lavirint.Start, lavirint.Goal);
-                var result = astar.Run();
+                astar.Run();
 
-                MessageBox.Show(Labyrinth.GetDirections(astar.GetPath()));
+                MessageBox.Show(String.Format("{0} {1} {2}",Labyrinth.GetDirections(astar.GetPath()),lavirint.rows, lavirint.cols));
                 astar = null;
                 lavirint.Start = null; 
             }
