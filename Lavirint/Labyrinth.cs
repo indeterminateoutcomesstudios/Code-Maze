@@ -104,7 +104,6 @@ namespace Lavirint
 
                 else if (height == width)
                 {
-                    Random rand = new Random();
                     Boolean pickOne = rand.NextDouble() < 0.5;
 
                     if (pickOne)
@@ -131,8 +130,7 @@ namespace Lavirint
 
         private void divideVertical(int left, int right, int top, int bottom)
         {
-            Random rand = new Random();
-
+           
             //find a random point to divide at
             //must be even to draw a wall there
             int divide = left + 2 + rand.Next(0, (right - left - 1) / 2) * 2;
@@ -154,8 +152,7 @@ namespace Lavirint
 
         private void divideHorizontal(int left, int right, int top, int bottom)
         {
-            Random rand = new Random();
-
+         
             //find a random point to divide at
             //must be even to draw a wall there
             int divide = top + 2 + rand.Next(0, (bottom - top - 1) / 2) * 2;
@@ -232,6 +229,7 @@ namespace Lavirint
              enumerator = path.GetEnumerator();
             enumerator.MoveNext();
             Node current = enumerator.Current as Node;
+            Node previous = current;
             int x = current.X;
             int y = current.Y;
             int brojNaDvizenja = 1;
@@ -248,9 +246,8 @@ namespace Lavirint
                 nasoka1 = "up";
             if (next.X == x + 1 && next.Y == y)
                 nasoka1 = "down";
-            Node node = current;
-            Node previous = current;
-            while (izlezi)
+            Node node = next;
+            while (izlezi )
             {
                 previous = node;
                 enumerator.MoveNext();

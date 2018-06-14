@@ -100,6 +100,22 @@ namespace Lavirint
                     karakter.Y += Karakter.pridvizuvanje;
             }
         }
+        public void hint()
+        {
+            int j = (karakter.X + 50 - PocetokX) / Igra.goleminaPole;
+            int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
+            lavirint.makeNodes();
+            lavirint.Start = lavirint.MazeofNodes[i][j];
+            lavirint.Goal = lavirint.MazeofNodes[lavirint.rows - 2][lavirint.cols - 2];
+            var astar = new Astar(lavirint.Start, lavirint.Goal);
+            var state = astar.Run();
+
+
+            MessageBox.Show(String.Format("{0} ", Labyrinth.GetDirections(astar.GetPath())));
+            astar = null;
+            lavirint.Start = null;
+            state = State.Searching;
+        }
 
         private void Igra_KeyDown(object sender, KeyEventArgs e)
         {
@@ -111,15 +127,7 @@ namespace Lavirint
             }
             if(e.KeyCode == Keys.H)
             {
-                int j = (karakter.X + 50 - PocetokX) / Igra.goleminaPole;
-                int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
-                lavirint.Start = lavirint.MazeofNodes[i][j];
-                var astar = new Astar(lavirint.Start, lavirint.Goal);
-                astar.Run();
-
-                MessageBox.Show(String.Format("{0} {1} {2}",Labyrinth.GetDirections(astar.GetPath()),lavirint.rows, lavirint.cols));
-                astar = null;
-                lavirint.Start = null; 
+                hint();
             }
 
             if (karakter.Ime.Equals("Lidia"))
