@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Lavirint.Properties;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lavirint
 {
-
+    [Serializable]
     public class Labyrinth
     {
         Random rand = new Random();
@@ -26,8 +28,19 @@ namespace Lavirint
 
         public Boolean[][] Maze;
 
+        Image borderImage;
+        Image pathImage;
+        public static int goleminaPole = 40;
+        public int PocetokX { get; set; }
+        public int PocetokY { get; set; }
+        
         public Labyrinth(int size)
         {
+            borderImage = Resources.border;
+            pathImage = Resources.path;
+            borderImage = Resize(borderImage, goleminaPole, goleminaPole);
+            pathImage = Resize(pathImage, goleminaPole, goleminaPole);
+
             //initialize instance variables
             rows = size * 2 + 1;
             cols = size * 2 + 1;
@@ -69,6 +82,20 @@ namespace Lavirint
 
             makeMaze();
             makeNodes();
+        }
+
+        public void Draw(Graphics g1)
+        {
+            for (int i = 0; i < cols; i++)
+            {
+                for (int j = 0; j < rows; j++)
+                {
+                    if (Maze[i][j])
+                        g1.DrawImageUnscaled(pathImage, PocetokX + goleminaPole * j, PocetokY + goleminaPole * i);
+                    else
+                        g1.DrawImageUnscaled(borderImage, PocetokX + goleminaPole * j, PocetokY + goleminaPole * i);
+                }
+            }
         }
 
         public void makeNodes()
@@ -215,5 +242,15 @@ namespace Lavirint
                 nasoka2 = "and then turn "+nasoka(previous, next);
             return String.Format("Go {0} {1} blocs {2}", nasoka1, brojNaDvizenja, nasoka2);
         }
+
+        private new Image Resize(Image img, int iWidth, int iHeight)
+        {
+            Bitmap bmp = new Bitmap(iWidth, iHeight);
+            Graphics graphic = Graphics.FromImage((Image)bmp);
+            graphic.DrawImage(img, 0, 0, iWidth, iHeight);
+            return (Image)bmp;
+        }
+
+
     }
 }

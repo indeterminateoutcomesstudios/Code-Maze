@@ -58,6 +58,7 @@
     <Compile Include="Igra.Designer.cs">
       <DependentUpon>Igra.cs</DependentUpon>
     </Compile>
+    <Compile Include="IgraDoc.cs" />
     <Compile Include="INode.cs" />
     <Compile Include="Instructions.cs">
       <SubType>Form</SubType>

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,133 +16,32 @@ namespace Lavirint
 {
     public partial class Igra : Form
     {
-        Karakter karakter;
-        Image img;
-        Image borderImage;
-        Image pathImage;
-        public Labyrinth lavirint { get; set; }
-        public static int goleminaPole = 40;
+       
         Form1 parent;
-        public int PocetokX { get; set; }
-        public int PocetokY { get; set; }
-        private int sec = 0;
-        private int min = 0;
-        private int correctAnswers = 0;
-        private int wrongAnswers = 0;
+        IgraDoc game;
+        int sec;
+        public string FileName { get; set; }
 
-
-        private new Image Resize(Image img, int iWidth, int iHeight)
-        {
-            Bitmap bmp = new Bitmap(iWidth, iHeight);
-            Graphics graphic = Graphics.FromImage((Image)bmp);
-            graphic.DrawImage(img, 0, 0, iWidth, iHeight);
-            return (Image)bmp;
-        }
-
-        public Igra(string ime, string playerName, Form1 parent, int size)
+        public Igra(Form1 parent, string ime="", string playerName="", int size=10)
         {
             InitializeComponent();
             DoubleBuffered = true;
-
+            game = new IgraDoc(ime, playerName, size);
+            this.parent = parent;
+           
             timer.Start();
             toolStripStatusLabel1.Text="Time :00:00";
-            toolStripStatusLabel2.Text = String.Format("Correct: {0}",correctAnswers);
-            toolStripStatusLabel3.Text = String.Format("Inorrect: {0}", wrongAnswers);
+            toolStripStatusLabel2.Text = String.Format("Correct: {0}",game.correctAnswers);
+            toolStripStatusLabel3.Text = String.Format("Inorrect: {0}", game.wrongAnswers);
+            toolStripStatusLabel4.Text = "Player: " + game.playerName;
 
-            this.parent = parent;
-            lavirint = new Labyrinth(size);
-            karakter = new Karakter(ime, 12, -5);
-
-            if (karakter.Ime.Equals("Lidia"))
-            {
-                img = Resources.lidia_dole_desno;
-            }
-            else if (karakter.Ime.Equals("Sara"))
-            {
-                img = Resources.Sara_dole_desno;
-            }
-           
-            borderImage = Resources.border;
-            pathImage = Resources.path;
-            borderImage = Resize(borderImage, goleminaPole, goleminaPole);
-            pathImage = Resize(pathImage, goleminaPole, goleminaPole);
         }
 
         private void Igra_Paint(object sender, PaintEventArgs e)
         {
             Graphics g1 = e.Graphics;
             g1.Clear(Color.White);
-            for (int i = 0; i < lavirint.cols; i++)
-            {
-                for (int j = 0; j < lavirint.rows; j++)
-                {
-                    if (lavirint.Maze[i][j])
-                        g1.DrawImageUnscaled(pathImage, PocetokX+ goleminaPole * j, PocetokY + goleminaPole * i);                    
-                    else
-                        g1.DrawImageUnscaled(borderImage, PocetokX + goleminaPole * j, PocetokY + goleminaPole * i);
-                }
-            }
-            g1.DrawImageUnscaled(img, karakter.X, karakter.Y);
-        }
-
-        private void pomestiEkran(KeyEventArgs e, Nasoka nasoka)
-        {
-            if (nasoka== Nasoka.Desno && karakter.X >= 350 && PocetokX>(600 - lavirint.cols * goleminaPole))
-            {
-                    PocetokX =Math.Max (PocetokX-Karakter.pridvizuvanje, 600-lavirint.cols *goleminaPole);
-                    karakter.X -= Karakter.pridvizuvanje;
-            }
-            if (nasoka==Nasoka.Levo && karakter.X <= 250 && PocetokX < 0)
-            {
-                    PocetokX = Math.Min(PocetokX + Karakter.pridvizuvanje, 0);
-                    karakter.X += Karakter.pridvizuvanje;
-            }
-            if (nasoka == Nasoka.Dole && karakter.Y >= 350  && PocetokY> (600 - (lavirint.rows)* goleminaPole))
-            {
-                PocetokY =Math.Max(PocetokY - Karakter.pridvizuvanje, 600 - lavirint.rows* goleminaPole);
-                karakter.Y -= Karakter.pridvizuvanje;
-            }
-            if (nasoka == Nasoka.Gore && karakter.Y <= 250 && PocetokY < 0)
-            {
-                    PocetokY = Math.Min(PocetokY + Karakter.pridvizuvanje, 0);
-                    karakter.Y += Karakter.pridvizuvanje;
-            }
-        }
-
-        public  Boolean goalfound()
-        {
-            return getCurrentNode().IsEqual(lavirint.Goal);
-        }
-
-
-        public Node getCurrentNode()
-        {
-            int j = (karakter.X + 50 - PocetokX) / Igra.goleminaPole;
-            int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
-            return lavirint.MazeofNodes[i][j];
-        }
-
-        public void hint()
-        {
-            //ova treba da se dopise
-            if (goalfound())
-            {
-                MessageBox.Show("Congrats!");
-                return;
-            }
-
-            lavirint.makeNodes();
-            lavirint.Curret = getCurrentNode();
-
-            
-
-            var astar = new Astar(lavirint.Curret, lavirint.Goal);
-            var state = astar.Run();
-            
-            MessageBox.Show(String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())));
-            //astar = null;
-            //lavirint.Start = null;
-            //state = State.Searching;
+            game.Draw(g1);
         }
 
         private void Igra_KeyDown(object sender, KeyEventArgs e)
@@ -147,92 +49,94 @@ namespace Lavirint
 
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close();
-                parent.Show();
+                timer.Stop();
+                DialogResult dr = MessageBox.Show("Do you want to save the game ?", "Save game", MessageBoxButtons.YesNoCancel);
+                if (dr == DialogResult.Yes)
+                    saveFile();
+                if (dr == DialogResult.No)
+                {
+                    this.Close();
+                    parent.Show();
+                }
+                if (dr == DialogResult.Cancel)
+                    timer.Start();
+
 
             }
             if(e.KeyCode == Keys.H)
             {
-                hint();
+                game.hint();
             }
 
-            if (karakter.Ime.Equals("Lidia"))
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.Down:
-                        karakter.SmeniNasoka(Nasoka.Dole);
-                        img = karakter.DesnaNoga ? Resources.lidia_dole_desno : Resources.lidia_dole_levo;
-
-                        break;
-                    case Keys.Up:
-                        karakter.SmeniNasoka(Nasoka.Gore);
-                        img = karakter.DesnaNoga ? Resources.lidia_gore_desno : Resources.lidia_gore_levo;
-
-                        break;
-                    case Keys.Left:
-                        karakter.SmeniNasoka(Nasoka.Levo);
-                        img = karakter.DesnaNoga ? Resources.lidia_levo_desno : Resources.lidia_levo_levo;
-
-                        break;
-                    case Keys.Right:
-                        karakter.SmeniNasoka(Nasoka.Desno);
-                        img = karakter.DesnaNoga ? Resources.lidia_desno_desno : Resources.lidia_desno_levo;
-
-                        break;
-                }
-            } else if (karakter.Ime.Equals("Sara"))
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.Down:
-                        karakter.SmeniNasoka(Nasoka.Dole);
-                        img = karakter.DesnaNoga ? Resources.Sara_dole_desno : Resources.Sara_dole_levo;
-
-                        break;
-                    case Keys.Up:
-                        karakter.SmeniNasoka(Nasoka.Gore);
-                        img = karakter.DesnaNoga ? Resources.Sara_gore_desno : Resources.Sara_gore_levo;
-
-                        break;
-                    case Keys.Left:
-                        karakter.SmeniNasoka(Nasoka.Levo);
-                        img = karakter.DesnaNoga ? Resources.Sara_levo_desno : Resources.Sara_levo_levo;
-
-                        break;
-                    case Keys.Right:
-                        karakter.SmeniNasoka(Nasoka.Desno);
-                        img = karakter.DesnaNoga ? Resources.Sara_desno_desno : Resources.Sara_desno_levo;
-
-                        break;
-                }
-            }
-            if(karakter.Move(this))
-                pomestiEkran(e,karakter.Nasoka);
-
-            
-
+            game.Move(e);
             Invalidate();
         }
+        public void updatStatusStrip()
+        {
+            toolStripStatusLabel1.Text = string.Format("Time: {0:D2}:{1:D2}", game.min, game.sec);
+            toolStripStatusLabel2.Text = String.Format("Correct: {0}", game.correctAnswers);
+            toolStripStatusLabel3.Text = String.Format("Inorrect: {0}", game.wrongAnswers);
+            toolStripStatusLabel4.Text = "Player: " + game.playerName;
+        }
+
+        private void saveFile()
+        {
+            if (FileName == null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Labyrinth doc file (*.lbr)|*.lbr";
+                saveFileDialog.Title = "Save labyrinth doc";
+                saveFileDialog.FileName = FileName;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileName = saveFileDialog.FileName;
+                }
+            }
+            if (FileName != null)
+            {
+                using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fileStream, game);
+                }
+            }
+            this.Close();
+            parent.Show();
+        }
+        public Boolean openFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Labyrinth doc file (*.lbr)|*.lbr";
+            openFileDialog.Title = "Open labyrinth doc file";
+           
+            if (openFileDialog.ShowDialog()== DialogResult.OK)
+            {
+                FileName = openFileDialog.FileName;
+                
+                    using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
+                    {
+                        IFormatter formater = new BinaryFormatter();
+                        game = (IgraDoc)formater.Deserialize(fileStream);
+                    }
+                
+                Invalidate(true);
+                return true;
+            }
+            
+            return false;
+        }
+
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            sec++;
-
-            //if(sec==30)
-            //{
-            //timer.Stop()
-            //otvori novo prasanje
-            //}
-
-            //timer.Star() ke treba da se povika otkoga ke se zatvori hintot od prasanjeto
-
-            if (sec == 60)
+            game.updatTime();
+            updatStatusStrip();
+            /*if (game.sec == 30)
             {
-                sec = 0;
-                min++;
-            }
-            toolStripStatusLabel1.Text = string.Format("Time: {0:D2}:{1:D2}", min, sec);
+                timer.Stop();
+                game.postaviPrasanje();
+                timer.Start();
+            }*/
         }
     }
 }

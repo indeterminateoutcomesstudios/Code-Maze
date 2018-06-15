@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lavirint
 {
+    [Serializable]
     public class Node :INode
     {
         private bool isOpenList = false;

@@ -38,7 +38,7 @@ namespace Lavirint
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Igra igra = new Igra(playerName,name,parent,size);
+            Igra igra = new Igra(parent, playerName,name,size);
             igra.Show();
             this.Close();
         }

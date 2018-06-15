@@ -116,6 +116,7 @@
             this.btnLoadGame.TabIndex = 3;
             this.btnLoadGame.Text = "Load Game";
             this.btnLoadGame.UseVisualStyleBackColor = false;
+            this.btnLoadGame.Click += new System.EventHandler(this.btnLoadGame_Click);
             this.btnLoadGame.MouseEnter += new System.EventHandler(this.btnLoadGame_MouseEnter);
             this.btnLoadGame.MouseLeave += new System.EventHandler(this.btnLoadGame_MouseLeave);
             // 

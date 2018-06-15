@@ -23,3 +23,5 @@ C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.
 C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.exe
 C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.pdb
 C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Instructions.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Instructions.resources
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Questions.resources

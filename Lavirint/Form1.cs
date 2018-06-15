@@ -90,5 +90,23 @@ namespace Lavirint
             ins.Show();
             this.Hide();
         }
+
+        private void btnLoadGame_Click(object sender, EventArgs e)
+        {
+            Igra igra = new Igra(this);
+            try
+            {
+               bool x= igra.openFile();
+                if (x)
+                {
+                    igra.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not read file: ");
+            }
+        }
     }
 }
