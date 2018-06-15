@@ -208,9 +208,6 @@
     <None Include="Resources\Yes-hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\border.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\path.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +260,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\q15A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\path.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

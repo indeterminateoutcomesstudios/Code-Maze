@@ -52,7 +52,11 @@ namespace Lavirint
                 timer.Stop();
                 DialogResult dr = MessageBox.Show("Do you want to save the game ?", "Save game", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
+                {
                     saveFile();
+                    parent.Show();
+                }
+
                 if (dr == DialogResult.No)
                 {
                     this.Close();
@@ -61,7 +65,7 @@ namespace Lavirint
                 if (dr == DialogResult.Cancel)
                     timer.Start();
 
-
+                
             }
             if(e.KeyCode == Keys.H)
             {
