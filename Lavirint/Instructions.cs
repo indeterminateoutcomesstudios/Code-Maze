@@ -15,7 +15,7 @@ namespace Lavirint
         public Instructions()
         {
             InitializeComponent();
-            lblIns.Text = "Lavirint is a single player game with one goal: to get from start to finish.";
+            lblText.Text = "Lavirint is a single player game with one goal: to get from start to finish.";
         }
     }
 }
