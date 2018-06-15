@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPlayer = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.btnStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -96,35 +96,15 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnBack.ForeColor = System.Drawing.Color.Transparent;
-            this.btnBack.Location = new System.Drawing.Point(31, 360);
+            this.btnBack.Location = new System.Drawing.Point(32, 360);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(85, 73);
             this.btnBack.TabIndex = 5;
+            this.btnBack.TabStop = false;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
             this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnStart.BackgroundImage = global::Lavirint.Properties.Resources.Yes_locked;
-            this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnStart.FlatAppearance.BorderSize = 0;
-            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStart.ForeColor = System.Drawing.Color.Transparent;
-            this.btnStart.Location = new System.Drawing.Point(527, 360);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(85, 73);
-            this.btnStart.TabIndex = 6;
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            this.btnStart.MouseEnter += new System.EventHandler(this.btnStart_MouseEnter);
-            this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -189,6 +169,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton1.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.radioButton1.Location = new System.Drawing.Point(409, 233);
@@ -254,9 +235,30 @@
             this.tbName.TabIndex = 14;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.BackgroundImage = global::Lavirint.Properties.Resources.Yes_locked;
+            this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStart.ForeColor = System.Drawing.Color.Transparent;
+            this.btnStart.Location = new System.Drawing.Point(529, 360);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(85, 73);
+            this.btnStart.TabIndex = 15;
+            this.btnStart.TabStop = false;
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.MouseEnter += new System.EventHandler(this.btnStart_MouseEnter);
+            this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
+            // 
             // NewGame
             // 
-            this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
@@ -265,6 +267,7 @@
             this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(647, 445);
             this.ControlBox = false;
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.radioButton3);
@@ -273,7 +276,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblPlayer);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -300,7 +302,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblPlayer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -309,5 +310,6 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Button btnStart;
     }
 }
