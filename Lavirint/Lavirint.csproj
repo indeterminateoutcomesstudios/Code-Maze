@@ -77,6 +77,12 @@
     <Compile Include="Prasanje.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Questions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Questions.Designer.cs">
+      <DependentUpon>Questions.cs</DependentUpon>
+    </Compile>
     <Compile Include="SortedListExtensions.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -100,6 +106,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Questions.resx">
+      <DependentUpon>Questions.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,6 +214,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrowKeys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pozadina_chista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q01C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q02B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q03B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q04B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q05C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q06A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q07A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q08A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q09D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q10B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q11A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q12C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q13B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q14A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q15A.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

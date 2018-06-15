@@ -208,4 +208,52 @@
   <data name="Prasanje" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Prasanje.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pozadina_chista" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pozadina_chista.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q01C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q01C.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q02B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q02B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q03B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q03B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q04B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q04B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q05C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q05C.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q06A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q06A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q07A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q07A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q08A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q08A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q09D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q09D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q10B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q10B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q11A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q11A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q12C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q12C.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q13B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q13B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q14A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q14A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="q15A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\q15A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
