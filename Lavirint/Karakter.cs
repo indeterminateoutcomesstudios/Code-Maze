@@ -45,6 +45,9 @@ namespace Lavirint
             DesnaNoga = !DesnaNoga;
             if (Nasoka == Nasoka.Desno)
             {
+                if (igra.goalfound())
+                    return false;
+                
                 int j = (X + 50 + pridvizuvanje - igra.PocetokX) / Igra.goleminaPole;
                 int i = (Y + 70 - igra.PocetokY) / Igra.goleminaPole;
                     if (igra.lavirint.Maze[i][j])
@@ -57,6 +60,10 @@ namespace Lavirint
             {
                 int j = (X + 32 - pridvizuvanje - igra.PocetokX) / Igra.goleminaPole;
                 int i = (Y + 70 - igra.PocetokY) / Igra.goleminaPole;
+
+                if (j <= 0)
+                    return false;
+
                 if (igra.lavirint.Maze[i][j])
                 {
                     X -= pridvizuvanje;

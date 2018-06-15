@@ -22,6 +22,11 @@ namespace Lavirint
         Form1 parent;
         public int PocetokX { get; set; }
         public int PocetokY { get; set; }
+        private int sec = 0;
+        private int min = 0;
+        private int correctAnswers = 0;
+        private int wrongAnswers = 0;
+
 
         private new Image Resize(Image img, int iWidth, int iHeight)
         {
@@ -35,6 +40,11 @@ namespace Lavirint
         {
             InitializeComponent();
             DoubleBuffered = true;
+
+            timer.Start();
+            toolStripStatusLabel1.Text="Time :00:00";
+            toolStripStatusLabel2.Text = String.Format("Correct: {0}",correctAnswers);
+            toolStripStatusLabel3.Text = String.Format("Inorrect: {0}", wrongAnswers);
 
             this.parent = parent;
             lavirint = new Labyrinth(size);
@@ -95,13 +105,35 @@ namespace Lavirint
                     karakter.Y += Karakter.pridvizuvanje;
             }
         }
-        public void hint()
+
+        public  Boolean goalfound()
+        {
+            return getCurrentNode().IsEqual(lavirint.Goal);
+        }
+
+
+        public Node getCurrentNode()
         {
             int j = (karakter.X + 50 - PocetokX) / Igra.goleminaPole;
             int i = (karakter.Y + 70 - PocetokY) / Igra.goleminaPole;
+            return lavirint.MazeofNodes[i][j];
+        }
+
+        public void hint()
+        {
+            //ova treba da se dopise
+            if (goalfound())
+            {
+                MessageBox.Show("Congrats!");
+                return;
+            }
+
             lavirint.makeNodes();
-            lavirint.Start = lavirint.MazeofNodes[i][j];
-            var astar = new Astar(lavirint.Start, lavirint.Goal);
+            lavirint.Curret = getCurrentNode();
+
+            
+
+            var astar = new Astar(lavirint.Curret, lavirint.Goal);
             var state = astar.Run();
             
             MessageBox.Show(String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())));
@@ -112,6 +144,7 @@ namespace Lavirint
 
         private void Igra_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
@@ -176,14 +209,30 @@ namespace Lavirint
             }
             if(karakter.Move(this))
                 pomestiEkran(e,karakter.Nasoka);
-           
+
             
+
             Invalidate();
         }
 
-        private void Igra_Load(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
+            sec++;
 
+            //if(sec==30)
+            //{
+            //timer.Stop()
+            //otvori novo prasanje
+            //}
+
+            //timer.Star() ke treba da se povika otkoga ke se zatvori hintot od prasanjeto
+
+            if (sec == 60)
+            {
+                sec = 0;
+                min++;
+            }
+            toolStripStatusLabel1.Text = string.Format("Time: {0:D2}:{1:D2}", min, sec);
         }
     }
 }
