@@ -86,7 +86,7 @@ namespace Lavirint
 
         private void btnInstructions_Click(object sender, EventArgs e)
         {
-            Instructions ins = new Instructions();
+            Instructions ins = new Instructions(this);
             ins.Show();
             this.Hide();
         }

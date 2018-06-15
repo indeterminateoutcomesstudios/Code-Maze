@@ -7,15 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Lavirint.Properties;
 
 namespace Lavirint
 {
     public partial class Instructions : Form
     {
-        public Instructions()
+        private Form1 parent;
+        public Instructions(Form1 p)
         {
             InitializeComponent();
-            lblText.Text = "Lavirint is a single player game with one goal: to get from start to finish.";
+            parent = p;
+        }
+
+        private void Instructions_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            parent.Show();
+            this.Close();
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackgroundImage = Resources.No_hover;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackgroundImage = Resources.No;
         }
     }
 }
