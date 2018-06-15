@@ -36,6 +36,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPlayer = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +53,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label1.Location = new System.Drawing.Point(169, 24);
+            this.label1.Location = new System.Drawing.Point(113, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 37);
             this.label1.TabIndex = 0;
@@ -57,8 +64,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label2.Location = new System.Drawing.Point(138, 238);
+            this.label2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label2.Location = new System.Drawing.Point(142, 326);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 28);
             this.label2.TabIndex = 3;
@@ -69,8 +76,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label3.Location = new System.Drawing.Point(302, 238);
+            this.label3.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label3.Location = new System.Drawing.Point(263, 326);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 28);
             this.label3.TabIndex = 4;
@@ -87,7 +94,7 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnBack.ForeColor = System.Drawing.Color.Transparent;
-            this.btnBack.Location = new System.Drawing.Point(28, 285);
+            this.btnBack.Location = new System.Drawing.Point(31, 360);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(85, 73);
             this.btnBack.TabIndex = 5;
@@ -107,7 +114,7 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnStart.ForeColor = System.Drawing.Color.Transparent;
-            this.btnStart.Location = new System.Drawing.Point(381, 285);
+            this.btnStart.Location = new System.Drawing.Point(527, 360);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(85, 73);
             this.btnStart.TabIndex = 6;
@@ -120,9 +127,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Lavirint.Properties.Resources.lidia_dole_levo;
-            this.pictureBox2.Location = new System.Drawing.Point(278, 147);
+            this.pictureBox2.Location = new System.Drawing.Point(247, 246);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 88);
+            this.pictureBox2.Size = new System.Drawing.Size(91, 77);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -132,9 +139,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Lavirint.Properties.Resources.Sara_dole_desno;
-            this.pictureBox1.Location = new System.Drawing.Point(116, 147);
+            this.pictureBox1.Location = new System.Drawing.Point(120, 246);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(94, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -146,10 +153,103 @@
             this.lblPlayer.BackColor = System.Drawing.Color.Transparent;
             this.lblPlayer.Font = new System.Drawing.Font("Monotype Corsiva", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPlayer.ForeColor = System.Drawing.Color.Maroon;
-            this.lblPlayer.Location = new System.Drawing.Point(204, 300);
+            this.lblPlayer.Location = new System.Drawing.Point(206, 370);
             this.lblPlayer.Name = "lblPlayer";
             this.lblPlayer.Size = new System.Drawing.Size(0, 37);
             this.lblPlayer.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label4.Location = new System.Drawing.Point(383, 193);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 37);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Choose level";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label5.Location = new System.Drawing.Point(246, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(159, 43);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "New Game";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton1.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.radioButton1.Location = new System.Drawing.Point(409, 233);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(73, 32);
+            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Easy";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.radioButton2.Location = new System.Drawing.Point(409, 271);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(112, 32);
+            this.radioButton2.TabIndex = 11;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Meddium";
+            this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton3.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton3.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.radioButton3.Location = new System.Drawing.Point(409, 309);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(74, 32);
+            this.radioButton3.TabIndex = 12;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Hard";
+            this.radioButton3.UseVisualStyleBackColor = false;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label6.Location = new System.Drawing.Point(113, 133);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 37);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Name:";
+            // 
+            // tbName
+            // 
+            this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(200)))), ((int)(((byte)(133)))));
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbName.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.tbName.Location = new System.Drawing.Point(213, 142);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(125, 26);
+            this.tbName.TabIndex = 14;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // NewGame
             // 
@@ -158,8 +258,15 @@
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.BackgroundImage = global::Lavirint.Properties.Resources.Pozadina;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(498, 394);
+            this.ClientSize = new System.Drawing.Size(647, 445);
             this.ControlBox = false;
+            this.Controls.Add(this.tbName);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblPlayer);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnBack);
@@ -190,5 +297,12 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblPlayer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbName;
     }
 }

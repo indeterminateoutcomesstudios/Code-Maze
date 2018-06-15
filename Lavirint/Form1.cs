@@ -83,5 +83,12 @@ namespace Lavirint
                 this.Close();
             }
         }
+
+        private void btnInstructions_Click(object sender, EventArgs e)
+        {
+            Instructions ins = new Instructions();
+            ins.Show();
+            this.Hide();
+        }
     }
 }

@@ -74,6 +74,7 @@
             this.btnInstructions.TabIndex = 1;
             this.btnInstructions.Text = "Instructions";
             this.btnInstructions.UseVisualStyleBackColor = false;
+            this.btnInstructions.Click += new System.EventHandler(this.btnInstructions_Click);
             this.btnInstructions.MouseEnter += new System.EventHandler(this.btnInstructions_MouseEnter);
             this.btnInstructions.MouseLeave += new System.EventHandler(this.btnInstructions_MouseLeave);
             // 

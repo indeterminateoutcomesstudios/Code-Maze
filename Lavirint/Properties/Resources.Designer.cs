@@ -63,6 +63,16 @@ namespace Lavirint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrowKeys {
+            get {
+                object obj = ResourceManager.GetObject("arrowKeys", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap border {
             get {
                 object obj = ResourceManager.GetObject("border", resourceCulture);
@@ -226,6 +236,16 @@ namespace Lavirint.Properties {
         internal static System.Drawing.Bitmap Pozadina {
             get {
                 object obj = ResourceManager.GetObject("Pozadina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Prasanje {
+            get {
+                object obj = ResourceManager.GetObject("Prasanje", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

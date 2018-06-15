@@ -31,7 +31,7 @@ namespace Lavirint
             return (Image)bmp;
         }
 
-        public Igra(string ime,Form1 parent,int size=20)
+        public Igra(string ime, string playerName, Form1 parent, int size)
         {
             InitializeComponent();
             DoubleBuffered = true;

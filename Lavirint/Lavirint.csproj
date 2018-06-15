@@ -59,6 +59,12 @@
       <DependentUpon>Igra.cs</DependentUpon>
     </Compile>
     <Compile Include="INode.cs" />
+    <Compile Include="Instructions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructions.Designer.cs">
+      <DependentUpon>Instructions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Karakter.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="NewGame.cs">
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Igra.resx">
       <DependentUpon>Igra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructions.resx">
+      <DependentUpon>Instructions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewGame.resx">
       <DependentUpon>NewGame.cs</DependentUpon>
@@ -193,6 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\path.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowKeys.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
