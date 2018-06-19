@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Lavirint.Properties;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,23 +19,60 @@ namespace Lavirint
         public int min { get; set; }
         public int correctAnswers { get; set; }
         public int wrongAnswers { get; set; }
+        public int size { get; set; }
 
         public Karakter karakter;
         public Labyrinth lavirint { get; set; }
         public string playerName {get;set;}
 
-        //da se cuvaat tuka za koga ke se load-a igra da se znae do koe prasanje sme
-        //public List<Prasanje> prasanja{get;set;}
-        //public int slednoPrasanje{get;set;}
-        public IgraDoc(string ime, string playerName,  int size)
+        public List<QuestionClass> prasanja { get; set; }
+        public bool gameOver { get; set; }
+        public Igra parent { get; set; }
+
+        public IgraDoc(string playerName, int size)
+        {
+            this.playerName = playerName;
+            this.size = size;
+        }
+
+        public IgraDoc(string ime, string playerName,  int size, Igra p)
         {
             this.sec = 0;
             this.min = 0;
             this.correctAnswers = 0;
             this.wrongAnswers = 0;
             lavirint = new Labyrinth(size);
+            this.size = size;
             karakter = new Karakter(ime, 12, -5);
             this.playerName = playerName;
+            Random rnd = new Random();
+            var images = Resources.ResourceManager
+                       .GetResourceSet(CultureInfo.CurrentCulture, true, true)
+                       .Cast<DictionaryEntry>()
+                       .Where(x => x.Value.GetType() == typeof(Bitmap) && x.Key.ToString().StartsWith("q"))
+                       .Select(x => new { Name = x.Key.ToString(), Image = x.Value })
+                       .OrderBy(x => rnd.Next())
+                       .ToList();
+            prasanja = new List<QuestionClass>();
+            foreach (var img in images) 
+                prasanja.Add(new QuestionClass(img.Image as Image, img.Name[3]));
+            Shuffle();
+            gameOver = false;
+            parent = p;
+        }
+
+        public void Shuffle()
+        {
+            Random rnd = new Random();
+            int n = prasanja.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rnd.Next(n + 1);
+                QuestionClass value = prasanja[k];
+                prasanja[k] = prasanja[n];
+                prasanja[n] = value;
+            }
         }
 
         public void Draw(Graphics g1)
@@ -41,7 +82,12 @@ namespace Lavirint
         }
         public Boolean goalfound()
         {
-            return getCurrentNode().IsEqual(lavirint.Goal);
+            if (getCurrentNode().IsEqual(lavirint.Goal))
+            {
+                gameOver = true;
+                return true;
+            }
+            return false;
         }
         public void updatTime()
         {
@@ -58,11 +104,11 @@ namespace Lavirint
             if (karakter.Move(this,e))
                 pomestiEkran(e, karakter.Nasoka);
 
-            if (goalfound())
+          /*  if (goalfound())
             {
                 MessageBox.Show("Congrats!");
                 return;
-            }
+            }*/
         }
 
         public void postaviPrasanje()
@@ -73,9 +119,27 @@ namespace Lavirint
             //ako ne
             //wrongAnswers
             //MessageBox.Show("nesto");
-
+            if(prasanja.Count != 0)
+            {
+                Questions q = new Questions(prasanja.First(), this, parent);
+                q.Show();
+                prasanja.RemoveAt(0);
+            }
+            else
+            {
+                MessageBox.Show("You lost!");
+            }
         }
 
+        public int getPoints()
+        {
+            return min * 60 + sec + wrongAnswers * 10;
+        }
+
+        public override string ToString()
+        {
+            return playerName + " " + size + " " + min + " " + sec + " " + correctAnswers + " " + wrongAnswers;
+        }
 
         public Node getCurrentNode()
         {

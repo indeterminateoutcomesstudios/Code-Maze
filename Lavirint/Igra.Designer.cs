@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,12 @@
             this.statusStrip1.Size = new System.Drawing.Size(590, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel4.Text = "toolStripStatusLabel4";
             // 
             // toolStripStatusLabel1
             // 
@@ -68,12 +74,6 @@
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel3.Text = "toolStripStatusLabel3";
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel4.Text = "toolStripStatusLabel4";
             // 
             // timer
             // 
@@ -105,10 +105,10 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        public System.Windows.Forms.Timer timer;
     }
 }

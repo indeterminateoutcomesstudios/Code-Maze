@@ -28,6 +28,7 @@ namespace Lavirint
             player = false;
             name = "";
             playerName = "";
+            size = 20;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

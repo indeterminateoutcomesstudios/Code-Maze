@@ -98,7 +98,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(394, 44);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Every 10 seconds you are given a chance to get a hint by answering a pop up quest" +
+            this.label2.Text = "Every 30 seconds you are given a chance to get a hint by answering a pop up quest" +
     "ion correctly. ";
             // 
             // label3

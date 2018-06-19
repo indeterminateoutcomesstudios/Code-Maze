@@ -75,15 +75,6 @@ namespace Lavirint
 
         }
 
-        //ova  ne raboti :( popravete ako mozete :D <3
-       private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode ==Keys.Escape)
-            {
-                this.Close();
-            }
-        }
-
         private void btnInstructions_Click(object sender, EventArgs e)
         {
             Instructions ins = new Instructions(this);
@@ -107,6 +98,23 @@ namespace Lavirint
             {
                 MessageBox.Show("Could not read file: ");
             }
+        }
+
+        private void btnHighScores_Click(object sender, EventArgs e)
+        {
+            HighScores hs = new HighScores(this);
+            hs.Show();
+            this.Hide();
+        }
+
+        private void btnHighScores_MouseEnter(object sender, EventArgs e)
+        {
+            this.btnHighScores.BackgroundImage = Resources.Hover_btn;
+        }
+
+        private void btnHighScores_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnHighScores.BackgroundImage = Resources.Normal_btn;
         }
     }
 }

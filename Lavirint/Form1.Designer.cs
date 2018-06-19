@@ -34,6 +34,7 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnLoadGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnHighScores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNewGame
@@ -47,9 +48,9 @@
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewGame.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNewGame.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnNewGame.Location = new System.Drawing.Point(156, 112);
+            this.btnNewGame.Location = new System.Drawing.Point(152, 104);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(181, 70);
+            this.btnNewGame.Size = new System.Drawing.Size(181, 60);
             this.btnNewGame.TabIndex = 0;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = false;
@@ -68,9 +69,9 @@
             this.btnInstructions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInstructions.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnInstructions.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnInstructions.Location = new System.Drawing.Point(156, 264);
+            this.btnInstructions.Location = new System.Drawing.Point(152, 302);
             this.btnInstructions.Name = "btnInstructions";
-            this.btnInstructions.Size = new System.Drawing.Size(181, 70);
+            this.btnInstructions.Size = new System.Drawing.Size(181, 60);
             this.btnInstructions.TabIndex = 1;
             this.btnInstructions.Text = "Instructions";
             this.btnInstructions.UseVisualStyleBackColor = false;
@@ -83,15 +84,16 @@
             this.btnQuit.BackColor = System.Drawing.Color.Transparent;
             this.btnQuit.BackgroundImage = global::Lavirint.Properties.Resources.Normal_btn;
             this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnQuit.FlatAppearance.BorderSize = 0;
             this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnQuit.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnQuit.Location = new System.Drawing.Point(156, 340);
+            this.btnQuit.Location = new System.Drawing.Point(152, 368);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(181, 70);
+            this.btnQuit.Size = new System.Drawing.Size(181, 60);
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
@@ -110,9 +112,9 @@
             this.btnLoadGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadGame.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnLoadGame.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnLoadGame.Location = new System.Drawing.Point(156, 188);
+            this.btnLoadGame.Location = new System.Drawing.Point(152, 170);
             this.btnLoadGame.Name = "btnLoadGame";
-            this.btnLoadGame.Size = new System.Drawing.Size(181, 70);
+            this.btnLoadGame.Size = new System.Drawing.Size(181, 60);
             this.btnLoadGame.TabIndex = 3;
             this.btnLoadGame.Text = "Load Game";
             this.btnLoadGame.UseVisualStyleBackColor = false;
@@ -132,6 +134,27 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Menu";
             // 
+            // btnHighScores
+            // 
+            this.btnHighScores.BackColor = System.Drawing.Color.Transparent;
+            this.btnHighScores.BackgroundImage = global::Lavirint.Properties.Resources.Normal_btn;
+            this.btnHighScores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHighScores.FlatAppearance.BorderSize = 0;
+            this.btnHighScores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHighScores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHighScores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHighScores.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnHighScores.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnHighScores.Location = new System.Drawing.Point(152, 236);
+            this.btnHighScores.Name = "btnHighScores";
+            this.btnHighScores.Size = new System.Drawing.Size(181, 60);
+            this.btnHighScores.TabIndex = 5;
+            this.btnHighScores.Text = "High Scores";
+            this.btnHighScores.UseVisualStyleBackColor = false;
+            this.btnHighScores.Click += new System.EventHandler(this.btnHighScores_Click);
+            this.btnHighScores.MouseEnter += new System.EventHandler(this.btnHighScores_MouseEnter);
+            this.btnHighScores.MouseLeave += new System.EventHandler(this.btnHighScores_MouseLeave);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,8 +162,10 @@
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(495, 507);
             this.ControlBox = false;
+            this.Controls.Add(this.btnHighScores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLoadGame);
             this.Controls.Add(this.btnQuit);
@@ -153,7 +178,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,6 +190,7 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Button btnLoadGame;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHighScores;
     }
 }
 

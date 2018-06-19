@@ -26,3 +26,4 @@ C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\Lavirint\Lavirint\obj\Deb
 C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Instructions.resources
 C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Questions.resources
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Questions.resources
+C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.HighScores.resources
