@@ -63,6 +63,16 @@ namespace Lavirint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Abstract_maze_symbols_15_512 {
+            get {
+                object obj = ResourceManager.GetObject("Abstract_maze_symbols_15_512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrowKeys {
             get {
                 object obj = ResourceManager.GetObject("arrowKeys", resourceCulture);
@@ -406,6 +416,26 @@ namespace Lavirint.Properties {
         internal static System.Drawing.Bitmap q15A {
             get {
                 object obj = ResourceManager.GetObject("q15A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap q16C {
+            get {
+                object obj = ResourceManager.GetObject("q16C", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap q17D {
+            get {
+                object obj = ResourceManager.GetObject("q17D", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

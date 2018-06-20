@@ -32,7 +32,6 @@
             this.lblScores = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblBr3 = new System.Windows.Forms.Label();
             this.lblTime2 = new System.Windows.Forms.Label();
             this.lblBr2 = new System.Windows.Forms.Label();
@@ -48,9 +47,10 @@
             this.lblCorrect3 = new System.Windows.Forms.Label();
             this.lblTime1 = new System.Windows.Forms.Label();
             this.lblBr1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lstLevel = new System.Windows.Forms.ListBox();
             this.table.SuspendLayout();
             this.SuspendLayout();
@@ -140,15 +140,6 @@
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.table.Size = new System.Drawing.Size(400, 120);
             this.table.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Name";
             // 
             // lblBr3
             // 
@@ -274,14 +265,14 @@
             this.lblBr1.TabIndex = 0;
             this.lblBr1.Text = "1.";
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Time";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(266, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 20);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Wrong Answers";
             // 
             // label4
             // 
@@ -292,14 +283,23 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Correct Answers";
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(266, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 20);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Wrong Answers";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(87, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Time";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(31, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Name";
             // 
             // lstLevel
             // 
@@ -327,12 +327,16 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(648, 412);
+            this.ControlBox = false;
             this.Controls.Add(this.lstLevel);
             this.Controls.Add(this.table);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblScores);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HighScores";
             this.Text = "HighScores";
             this.table.ResumeLayout(false);

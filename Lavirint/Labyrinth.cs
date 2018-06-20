@@ -240,7 +240,10 @@ namespace Lavirint
 
             if(nasoka2==null)
                 nasoka2 = "and then turn "+nasoka(previous, next);
-            return String.Format("Go {0} {1} blocs {2}", nasoka1, brojNaDvizenja, nasoka2);
+            if(brojNaDvizenja==1)
+                return String.Format("Go {0} {1} block {2}", nasoka1, brojNaDvizenja, nasoka2);
+            else
+                return String.Format("Go {0} {1} blocks {2}", nasoka1, brojNaDvizenja, nasoka2);
         }
 
         private new Image Resize(Image img, int iWidth, int iHeight)

@@ -142,6 +142,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(538, 402);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -150,6 +151,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblIns);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Instructions";
             this.Text = "Instructions";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Instructions_FormClosed);

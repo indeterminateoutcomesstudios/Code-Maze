@@ -110,12 +110,16 @@
             this.BackgroundImage = global::Lavirint.Properties.Resources.pozadina_chista;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(797, 517);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonD);
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonB);
             this.Controls.Add(this.buttonA);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Questions";
             this.Text = "Questions";
             this.ResumeLayout(false);

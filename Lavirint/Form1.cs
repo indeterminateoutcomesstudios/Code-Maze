@@ -70,10 +70,7 @@ namespace Lavirint
             this.btnNewGame.BackgroundImage = Resources.Normal_btn;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnInstructions_Click(object sender, EventArgs e)
         {

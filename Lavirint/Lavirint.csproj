@@ -276,5 +276,14 @@
   <ItemGroup>
     <None Include="Resources\path.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abstract_maze_symbols-15-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q16C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q17D.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

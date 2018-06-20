@@ -27,3 +27,18 @@ C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Instruc
 C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.Questions.resources
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.Questions.resources
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.HighScores.resources
+C:\VS\Lavirint\Lavirint\bin\Debug\Lavirint.exe.config
+C:\VS\Lavirint\Lavirint\bin\Debug\Lavirint.exe
+C:\VS\Lavirint\Lavirint\bin\Debug\Lavirint.pdb
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.csprojResolveAssemblyReference.cache
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.Form1.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.HighScores.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.Igra.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.Instructions.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.NewGame.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.Properties.Resources.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.Questions.resources
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.GenerateResource.cache
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.CoreCompileInputs.cache
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.exe
+C:\VS\Lavirint\Lavirint\obj\Debug\Lavirint.pdb
