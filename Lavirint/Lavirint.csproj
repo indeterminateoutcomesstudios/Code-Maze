@@ -337,5 +337,20 @@
   <ItemGroup>
     <None Include="Resources\letter_s.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="readMeShots\hall of fame.png" />
+    <Content Include="readMeShots\instructions.png" />
+    <Content Include="readMeShots\iris hall of fame.png" />
+    <Content Include="readMeShots\iris1.png" />
+    <Content Include="readMeShots\iris2.png" />
+    <Content Include="readMeShots\iris3.png" />
+    <Content Include="readMeShots\menu.png" />
+    <Content Include="readMeShots\new game sara hover.png" />
+    <Content Include="readMeShots\new game sara.png" />
+    <Content Include="readMeShots\question.png" />
+    <Content Include="readMeShots\question2.png" />
+    <Content Include="readMeShots\sara1.png" />
+    <Content Include="readMeShots\sara2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
