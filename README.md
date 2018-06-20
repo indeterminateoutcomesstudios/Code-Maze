@@ -82,7 +82,7 @@ https://en.wikipedia.org/wiki/Maze_generation_algorithm#Recursive_division_metho
 Методот pomestiEkran(KeyEventArgs e, Nasoka nasoka) ја поместува почетната точка од која се исцртува лавиринтот според позицијата на карактерот.
 Методот pomestiEkran(KeyEventArgs e, Nasoka nasoka) во Karakter го пресметува индексот на полето во матрицата кое е соодветно на позицијата на карактерот во формата. Проверуваме дали е ѕид, во тој случај поместувањето се игнорира, во спротивно, доколку е патека, карактерот се приидвижува.
 Со методот hint() се повикува AStar алготитмот за да се најде најкраткиот пат од моменталната позиција до целта и се отвара MessageBox со соодветна порака (порака од getDirections()).
-АСтар алгоритмот е преземен од https://github.com/jbaldwin/astar.cs .
+АStar алгоритмот е преземен од https://github.com/jbaldwin/astar.cs .
 
 #### Класи IgraDoc и QuestionsClass
 
