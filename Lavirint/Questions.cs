@@ -36,6 +36,7 @@ namespace Lavirint
         private void buttonA_Click(object sender, EventArgs e)
         {
             this.Close();
+            timer1.Stop();
             if (answer.Equals('A'))
             {
                 game.correctAnswers++;
@@ -48,6 +49,7 @@ namespace Lavirint
         private void buttonC_Click(object sender, EventArgs e)
         {
             this.Close();
+            timer1.Stop();
             if (answer.Equals('C'))
             {
                 game.correctAnswers++;
@@ -61,6 +63,7 @@ namespace Lavirint
         private void buttonB_Click(object sender, EventArgs e)
         {
             this.Close();
+            timer1.Stop();
             if (answer.Equals('B'))
             {
                 game.correctAnswers++;
@@ -73,6 +76,7 @@ namespace Lavirint
         private void buttonD_Click(object sender, EventArgs e)
         {
             this.Close();
+            timer1.Stop();
             if (answer.Equals('D'))
             {
                 game.correctAnswers++;
@@ -88,7 +92,7 @@ namespace Lavirint
             {
                 game.wrongAnswers++;
                 this.Close();
-                
+                timer1.Stop();
             }
             sec++;
         }

@@ -58,7 +58,19 @@ namespace Lavirint
                 timer.Stop();
                 DialogResult dr = MessageBox.Show("Do you want to save the game?", "Save game", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
-                    saveFile();
+                {
+                    DialogResult d=saveFile();
+                    if (d == DialogResult.OK)
+                    {
+                        this.Close();
+                        timer.Stop();
+                        parent.Show();
+                    }
+                    else
+                    {
+                        timer.Start();
+                    }
+                }
 
                 if (dr == DialogResult.No)
                 {
@@ -73,8 +85,13 @@ namespace Lavirint
             if(e.KeyCode== Keys.S)
             {
                 timer.Stop();
-                saveFile();
-                timer.Start();
+                DialogResult d=saveFile();
+                if (d == DialogResult.OK)
+                {
+                    timer.Start();
+                }
+                else
+                    timer.Start();
             }
 
             if(e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
@@ -92,7 +109,7 @@ namespace Lavirint
             toolStripStatusLabel4.Text = "Player: " + game.playerName;
         }
 
-        private void saveFile()
+        private DialogResult saveFile()
         {
             if (FileName == null)
             {
@@ -103,7 +120,9 @@ namespace Lavirint
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     FileName = saveFileDialog.FileName;
+                    return DialogResult.OK;
                 }
+                return DialogResult.Cancel;
             }
             if (FileName != null)
             {
@@ -111,11 +130,13 @@ namespace Lavirint
                 {
                     IFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(fileStream, game);
+                    
                 }
+                return DialogResult.OK;
             }
-            this.Close();
-            timer.Stop();
-            parent.Show();
+            return DialogResult.Cancel;
+           
+
         }
 
         public Boolean openFile()
