@@ -8,14 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavirint.Properties;
+using WMPLib;
 
 namespace Lavirint
 {
     public partial class Form1 : Form
     {
+        WindowsMediaPlayer player = new WindowsMediaPlayer();
         public Form1()
         {
             InitializeComponent();
+            player.URL = "Jungle loop2.wav";
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
@@ -113,5 +116,12 @@ namespace Lavirint
         {
             this.btnHighScores.BackgroundImage = Resources.Normal_btn;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            player.controls.play();
+        }
+
+        
     }
 }
