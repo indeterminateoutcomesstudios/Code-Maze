@@ -56,13 +56,14 @@ namespace Lavirint
             if (e.KeyCode == Keys.Escape)
             {
                 timer.Stop();
-                DialogResult dr = MessageBox.Show("Do you want to save the game ?", "Save game", MessageBoxButtons.YesNoCancel);
+                DialogResult dr = MessageBox.Show("Do you want to save the game?", "Save game", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                     saveFile();
 
                 if (dr == DialogResult.No)
                 {
                     this.Close();
+                    timer.Stop();
                     parent.Show();
                 }
                 if (dr == DialogResult.Cancel)
@@ -110,6 +111,7 @@ namespace Lavirint
                 }
             }
             this.Close();
+            timer.Stop();
             parent.Show();
         }
 
@@ -151,15 +153,17 @@ namespace Lavirint
                 updateScores();
                 if (isHighScore)
                 {
-                    MessageBox.Show("Congratulations!!!\nYou've just won a place at Hall of Fame!");
+                    MessageBox.Show("You won!","Congratulations!!!\nYou've just won a place at Hall of Fame!");
                     HighScores hs = new HighScores(parent, level);
                     this.Close();
+                    timer.Stop();
                     hs.Show();
                 }
                 else
                 {
-                    MessageBox.Show(String.Format("Time: {0}:{1}\nCorrect Answers: {2}\nWrong Answers: {3}", game.min, game.sec, game.correctAnswers, game.wrongAnswers));
+                    MessageBox.Show(String.Format("You won!","Time: {0}:{1}\nCorrect Answers: {2}\nWrong Answers: {3}", game.min, game.sec, game.correctAnswers, game.wrongAnswers));
                     this.Close();
+                    timer.Stop();
                     parent.Show();
                 }
             }

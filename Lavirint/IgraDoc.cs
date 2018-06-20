@@ -54,32 +54,35 @@ namespace Lavirint
                        .OrderBy(x => rnd.Next())
                        .ToList();
             prasanja = new List<QuestionClass>();
-            foreach (var img in images) 
-                prasanja.Add(new QuestionClass(img.Image as Image, img.Name[3]));
-            Shuffle();
+            if (size == 20)
+            {
+                for(int i = 0; i<10; i++)
+                {
+                    prasanja.Add(new QuestionClass(images[i].Image as Image, images[i].Name[3]));
+                }
+            }
+            else if(size == 30)
+            {
+                for (int i = 0; i < 15; i++)
+                {
+                    prasanja.Add(new QuestionClass(images[i].Image as Image, images[i].Name[3]));
+                }
+            }
+            else
+            {
+                foreach (var img in images)
+                    prasanja.Add(new QuestionClass(img.Image as Image, img.Name[3]));
+            }
             gameOver = false;
             parent = p;
         }
-
-        public void Shuffle()
-        {
-            Random rnd = new Random();
-            int n = prasanja.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = rnd.Next(n + 1);
-                QuestionClass value = prasanja[k];
-                prasanja[k] = prasanja[n];
-                prasanja[n] = value;
-            }
-        }
-
+ 
         public void Draw(Graphics g1)
         {
             lavirint.Draw(g1);
             karakter.Draw(g1);
         }
+
         public Boolean goalfound()
         {
             if (getCurrentNode().IsEqual(lavirint.Goal))
@@ -89,6 +92,7 @@ namespace Lavirint
             }
             return false;
         }
+
         public void updatTime()
         {
             sec++;
@@ -103,22 +107,10 @@ namespace Lavirint
         {
             if (karakter.Move(this,e))
                 pomestiEkran(e, karakter.Nasoka);
-
-          /*  if (goalfound())
-            {
-                MessageBox.Show("Congrats!");
-                return;
-            }*/
         }
 
         public void postaviPrasanje()
         {
-            //ako tocno odgovoril
-            //correctAnswers++
-            //hint();
-            //ako ne
-            //wrongAnswers
-            //MessageBox.Show("nesto");
             if(prasanja.Count != 0)
             {
                 Questions q = new Questions(prasanja.First(), this, parent);
@@ -127,7 +119,9 @@ namespace Lavirint
             }
             else
             {
-                MessageBox.Show("You lost!");
+                MessageBox.Show("Game over","GAME OVER\nGet back to school!");
+                parent.Close();
+                parent.timer.Stop();
             }
         }
 
@@ -156,7 +150,7 @@ namespace Lavirint
             var astar = new Astar(lavirint.Curret, lavirint.Goal);
             var state = astar.Run();
 
-            MessageBox.Show(String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())));
+            MessageBox.Show("Correct!!!",String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())));
         }
 
         private void pomestiEkran(KeyEventArgs e, Nasoka nasoka)
