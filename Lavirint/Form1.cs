@@ -120,6 +120,7 @@ namespace Lavirint
         private void Form1_Load(object sender, EventArgs e)
         {
             player.controls.play();
+            player.settings.setMode("loop", true);
         }
 
         

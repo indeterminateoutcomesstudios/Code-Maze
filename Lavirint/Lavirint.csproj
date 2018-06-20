@@ -304,5 +304,32 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q18A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q19A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q20D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q21A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q22C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q23B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q24B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q25A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q26C.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
