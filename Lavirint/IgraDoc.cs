@@ -27,7 +27,7 @@ namespace Lavirint
 
         public List<QuestionClass> prasanja { get; set; }
         public bool gameOver { get; set; }
-        public Igra parent { get; set; }
+       // public Igra parent { get; set; }
 
         public IgraDoc(string playerName, int size)
         {
@@ -35,7 +35,7 @@ namespace Lavirint
             this.size = size;
         }
 
-        public IgraDoc(string ime, string playerName,  int size, Igra p)
+        public IgraDoc(string ime, string playerName,  int size)
         {
             this.sec = 0;
             this.min = 0;
@@ -74,7 +74,7 @@ namespace Lavirint
                     prasanja.Add(new QuestionClass(img.Image as Image, img.Name[3]));
             }
             gameOver = false;
-            parent = p;
+            //parent = p;
         }
  
         public void Draw(Graphics g1)
@@ -109,20 +109,22 @@ namespace Lavirint
                 pomestiEkran(e, karakter.Nasoka);
         }
 
-        public void postaviPrasanje()
+        public bool postaviPrasanje()
         {
             if(prasanja.Count != 0)
             {
-                Questions q = new Questions(prasanja.First(), this, parent);
-                q.Show();
+                Questions q = new Questions(prasanja.First(), this);
+                q.ShowDialog();
                 prasanja.RemoveAt(0);
+                return true;
             }
             else
             {
                 MessageBox.Show("Game over","GAME OVER\nGet back to school!");
-                parent.Close();
-                parent.timer.Stop();
+               
+                return false;
             }
+            
         }
 
         public int getPoints()

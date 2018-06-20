@@ -28,7 +28,7 @@ namespace Lavirint
         {
             InitializeComponent();
             DoubleBuffered = true;
-            game = new IgraDoc(ime, playerName, size, this);
+            game = new IgraDoc(ime, playerName, size);
             this.parent = parent;
             timer.Start();
             toolStripStatusLabel1.Text="Time :00:00";
@@ -69,9 +69,12 @@ namespace Lavirint
                 if (dr == DialogResult.Cancel)
                     timer.Start();      
             }
-            if(e.KeyCode == Keys.H)
+           
+            if(e.KeyCode== Keys.S)
             {
-                game.hint();
+                timer.Stop();
+                saveFile();
+                timer.Start();
             }
 
             if(e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
@@ -145,7 +148,11 @@ namespace Lavirint
             if (game.sec == 30 || (game.sec == 0 && game.min != 0))
             {
                 timer.Stop();
-                game.postaviPrasanje();
+                bool temp=game.postaviPrasanje();
+                if (temp)
+                    timer.Start();
+                else
+                    this.Close();
             }
             if (game.gameOver)
             {

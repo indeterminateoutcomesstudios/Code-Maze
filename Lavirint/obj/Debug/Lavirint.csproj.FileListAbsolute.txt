@@ -52,3 +52,9 @@ C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\bin\Deb
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Interop.WMPLib.dll
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Nevenka\documents\visual studio 2017\Projects\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.ResolveComReference.cache
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\bin\Debug\Interop.WMPLib.dll
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Interop.WMPLib.dll
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.csproj.ResolveComReference.cache
+C:\Users\Maksimova\Documents\GitHub\Lavirint\Lavirint\obj\Debug\Lavirint.HighScores.resources

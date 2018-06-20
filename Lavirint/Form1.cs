@@ -12,6 +12,7 @@ using WMPLib;
 
 namespace Lavirint
 {
+    
     public partial class Form1 : Form
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();

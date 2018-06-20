@@ -20,9 +20,9 @@ namespace Lavirint
         public char answer;
         IgraDoc game;
         int sec;
-        Igra parent;
+        
 
-        public Questions(QuestionClass prasanje, IgraDoc g, Igra p)
+        public Questions(QuestionClass prasanje, IgraDoc g)
         {
             InitializeComponent();
             sec = 0;
@@ -30,7 +30,7 @@ namespace Lavirint
             this.BackgroundImage = prasanje.Img;
             answer = prasanje.Answer;
             game = g;
-            parent = p;
+            
         }
 
         private void buttonA_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace Lavirint
                 game.hint();
             }
             else game.wrongAnswers++;
-            parent.timer.Start();
+            
         }
 
         private void buttonC_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace Lavirint
             }
             else game.wrongAnswers++;
 
-            parent.timer.Start();
+           
         }
 
         private void buttonB_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Lavirint
                 game.hint();
             }
             else game.wrongAnswers++;
-            parent.timer.Start();
+            
         }
 
         private void buttonD_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Lavirint
                 game.hint();
             }
             else game.wrongAnswers++;
-            parent.timer.Start();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace Lavirint
             {
                 game.wrongAnswers++;
                 this.Close();
-                parent.timer.Start();
+                
             }
             sec++;
         }
