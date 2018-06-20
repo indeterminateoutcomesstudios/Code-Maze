@@ -191,7 +191,7 @@ namespace Lavirint
                 updateScores();
                 if (isHighScore)
                 {
-                    MessageBox.Show("You won!","Congratulations!!!\nYou've just won a place at Hall of Fame!");
+                    MessageBox.Show("Congratulations!!!\nYou've just won a place at Hall of Fame!", "You won!");
                     HighScores hs = new HighScores(parent, level);
                     this.Close();
                     timer.Stop();
@@ -199,7 +199,7 @@ namespace Lavirint
                 }
                 else
                 {
-                    MessageBox.Show(String.Format("You won!","Time: {0}:{1}\nCorrect Answers: {2}\nWrong Answers: {3}", game.min, game.sec, game.correctAnswers, game.wrongAnswers));
+                    MessageBox.Show(String.Format("Time: {0}:{1}\nCorrect Answers: {2}\nWrong Answers: {3}", game.min, game.sec, game.correctAnswers, game.wrongAnswers),"You won!");
                     this.Close();
                     timer.Stop();
                     parent.Show();

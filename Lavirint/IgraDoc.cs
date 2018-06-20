@@ -122,7 +122,7 @@ namespace Lavirint
             }
             else
             {
-                MessageBox.Show("Game over","GAME OVER\nGet back to school!");
+                MessageBox.Show("GAME OVER\nGet back to school!","Game over");
                
                 return false;
             }
