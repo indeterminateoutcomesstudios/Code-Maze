@@ -93,9 +93,29 @@ namespace Lavirint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap esc_key {
+            get {
+                object obj = ResourceManager.GetObject("esc_key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hover_btn {
             get {
                 object obj = ResourceManager.GetObject("Hover_btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap letter_s {
+            get {
+                object obj = ResourceManager.GetObject("letter_s", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
