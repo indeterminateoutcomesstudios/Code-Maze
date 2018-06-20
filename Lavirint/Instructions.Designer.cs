@@ -151,11 +151,12 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblIns);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Instructions";
-            this.Text = "Instructions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Instructions_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

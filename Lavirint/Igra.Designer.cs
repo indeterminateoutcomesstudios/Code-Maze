@@ -92,7 +92,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Igra";
-            this.Text = "Igra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " ";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Igra_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Igra_KeyDown);
             this.statusStrip1.ResumeLayout(false);

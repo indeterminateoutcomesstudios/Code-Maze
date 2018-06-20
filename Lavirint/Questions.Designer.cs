@@ -39,9 +39,11 @@
             // buttonA
             // 
             this.buttonA.BackColor = System.Drawing.Color.Transparent;
-            this.buttonA.BackgroundImage = global::Lavirint.Properties.Resources.Yes_locked;
-            this.buttonA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonA.BackgroundImage = global::Lavirint.Properties.Resources.Yes;
+            this.buttonA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonA.FlatAppearance.BorderSize = 0;
+            this.buttonA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonA.ForeColor = System.Drawing.Color.Transparent;
             this.buttonA.Location = new System.Drawing.Point(113, 273);
@@ -50,13 +52,17 @@
             this.buttonA.TabIndex = 0;
             this.buttonA.UseVisualStyleBackColor = false;
             this.buttonA.Click += new System.EventHandler(this.buttonA_Click);
+            this.buttonA.MouseEnter += new System.EventHandler(this.buttonA_MouseEnter);
+            this.buttonA.MouseLeave += new System.EventHandler(this.buttonA_MouseLeave);
             // 
             // buttonB
             // 
             this.buttonB.BackColor = System.Drawing.Color.Transparent;
-            this.buttonB.BackgroundImage = global::Lavirint.Properties.Resources.Yes_locked;
-            this.buttonB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonB.BackgroundImage = global::Lavirint.Properties.Resources.Yes;
+            this.buttonB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonB.FlatAppearance.BorderSize = 0;
+            this.buttonB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonB.ForeColor = System.Drawing.Color.Transparent;
             this.buttonB.Location = new System.Drawing.Point(113, 363);
@@ -65,13 +71,17 @@
             this.buttonB.TabIndex = 1;
             this.buttonB.UseVisualStyleBackColor = false;
             this.buttonB.Click += new System.EventHandler(this.buttonB_Click);
+            this.buttonB.MouseEnter += new System.EventHandler(this.buttonB_MouseEnter);
+            this.buttonB.MouseLeave += new System.EventHandler(this.buttonB_MouseLeave);
             // 
             // buttonC
             // 
             this.buttonC.BackColor = System.Drawing.Color.Transparent;
-            this.buttonC.BackgroundImage = global::Lavirint.Properties.Resources.Yes_locked;
-            this.buttonC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonC.BackgroundImage = global::Lavirint.Properties.Resources.Yes;
+            this.buttonC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonC.FlatAppearance.BorderSize = 0;
+            this.buttonC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonC.ForeColor = System.Drawing.Color.Transparent;
             this.buttonC.Location = new System.Drawing.Point(380, 273);
@@ -80,13 +90,17 @@
             this.buttonC.TabIndex = 2;
             this.buttonC.UseVisualStyleBackColor = false;
             this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
+            this.buttonC.MouseEnter += new System.EventHandler(this.buttonC_MouseEnter);
+            this.buttonC.MouseLeave += new System.EventHandler(this.buttonC_MouseLeave);
             // 
             // buttonD
             // 
             this.buttonD.BackColor = System.Drawing.Color.Transparent;
-            this.buttonD.BackgroundImage = global::Lavirint.Properties.Resources.Yes_locked;
-            this.buttonD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonD.BackgroundImage = global::Lavirint.Properties.Resources.Yes;
+            this.buttonD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonD.FlatAppearance.BorderSize = 0;
+            this.buttonD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonD.ForeColor = System.Drawing.Color.Transparent;
             this.buttonD.Location = new System.Drawing.Point(380, 363);
@@ -95,6 +109,8 @@
             this.buttonD.TabIndex = 3;
             this.buttonD.UseVisualStyleBackColor = false;
             this.buttonD.Click += new System.EventHandler(this.buttonD_Click);
+            this.buttonD.MouseEnter += new System.EventHandler(this.buttonD_MouseEnter);
+            this.buttonD.MouseLeave += new System.EventHandler(this.buttonD_MouseLeave);
             // 
             // timer1
             // 
@@ -121,7 +137,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Questions";
-            this.Text = "Questions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " ";
             this.ResumeLayout(false);
 
         }

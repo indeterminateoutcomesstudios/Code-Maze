@@ -102,7 +102,8 @@ namespace Lavirint
 
         private void check()
         {
-            if (player && (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked) && tbName.Text.Length > 1)
+            name = tbName.Text.Trim();
+            if (player && (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked) && name.Length > 1)
             {
                 btnStart.Enabled = true;
                 btnStart.BackgroundImage = Resources.Yes;
@@ -117,7 +118,6 @@ namespace Lavirint
         private void tbName_TextChanged(object sender, EventArgs e)
         {
             check();
-            name = tbName.Text;
         }
     }
 }

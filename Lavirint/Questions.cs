@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lavirint.Properties;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,7 @@ namespace Lavirint
 
         private void buttonA_Click(object sender, EventArgs e)
         {
+            this.Close();
             if (answer.Equals('A'))
             {
                 game.correctAnswers++;
@@ -41,23 +43,24 @@ namespace Lavirint
             }
             else game.wrongAnswers++;
             parent.timer.Start();
-            this.Close();
         }
 
         private void buttonC_Click(object sender, EventArgs e)
         {
+            this.Close();
             if (answer.Equals('C'))
             {
                 game.correctAnswers++;
                 game.hint();
             }
             else game.wrongAnswers++;
+
             parent.timer.Start();
-            this.Close();
         }
 
         private void buttonB_Click(object sender, EventArgs e)
         {
+            this.Close();
             if (answer.Equals('B'))
             {
                 game.correctAnswers++;
@@ -65,11 +68,11 @@ namespace Lavirint
             }
             else game.wrongAnswers++;
             parent.timer.Start();
-            this.Close();
         }
 
         private void buttonD_Click(object sender, EventArgs e)
         {
+            this.Close();
             if (answer.Equals('D'))
             {
                 game.correctAnswers++;
@@ -77,7 +80,6 @@ namespace Lavirint
             }
             else game.wrongAnswers++;
             parent.timer.Start();
-            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -85,9 +87,50 @@ namespace Lavirint
             if(sec == 30)
             {
                 game.wrongAnswers++;
-                parent.timer.Start();
                 this.Close();
+                parent.timer.Start();
             }
+            sec++;
+        }
+
+        private void buttonA_MouseEnter(object sender, EventArgs e)
+        {
+            buttonA.BackgroundImage = Resources.Yes_hover;
+        }
+
+        private void buttonA_MouseLeave(object sender, EventArgs e)
+        {
+            buttonA.BackgroundImage = Resources.Yes;
+        }
+
+        private void buttonC_MouseEnter(object sender, EventArgs e)
+        {
+            buttonC.BackgroundImage = Resources.Yes_hover;
+        }
+
+        private void buttonC_MouseLeave(object sender, EventArgs e)
+        {
+            buttonC.BackgroundImage = Resources.Yes;
+        }
+
+        private void buttonB_MouseEnter(object sender, EventArgs e)
+        {
+            buttonB.BackgroundImage = Resources.Yes_hover;
+        }
+
+        private void buttonB_MouseLeave(object sender, EventArgs e)
+        {
+            buttonB.BackgroundImage = Resources.Yes;
+        }
+
+        private void buttonD_MouseEnter(object sender, EventArgs e)
+        {
+            buttonD.BackgroundImage = Resources.Yes_hover;
+        }
+
+        private void buttonD_MouseLeave(object sender, EventArgs e)
+        {
+            buttonD.BackgroundImage = Resources.Yes;
         }
     }
 }

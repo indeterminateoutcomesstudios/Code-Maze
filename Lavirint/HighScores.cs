@@ -26,12 +26,21 @@ namespace Lavirint
             InitializeComponent();
             parent = p;
             level = l;
+            arr = new Label[] { lblName1, lblTime1, lblCorrect1, lblWrong1,
+                    lblName2, lblTime2, lblCorrect2, lblWrong2,
+                    lblName3, lblTime3, lblCorrect3, lblWrong3 };
+            foreach (Label a in arr)
+                a.ForeColor = Color.DarkOliveGreen;
+            easy = new List<IgraDoc>();
+            meddium = new List<IgraDoc>();
+            hard = new List<IgraDoc>();
+            lstLevel.SelectedIndex = level;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            string path = (Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Scores.txt");
+            string path = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Scores.txt");
             if (File.Exists(path))
             {
                 StreamReader reader = null;
@@ -52,10 +61,6 @@ namespace Lavirint
                 }
                 reader.Close();
 
-                easy = new List<IgraDoc>();
-                meddium = new List<IgraDoc>();
-                hard = new List<IgraDoc>();
-
                 foreach(IgraDoc g in games)
                 {
                     if (g.size == 20)
@@ -66,10 +71,6 @@ namespace Lavirint
                         hard.Add(g);
                 }
 
-                arr = new Label[] { lblName1, lblTime1, lblCorrect1, lblWrong1,
-                    lblName2, lblTime2, lblCorrect2, lblWrong2,
-                    lblName3, lblTime3, lblCorrect3, lblWrong3 };
-                lstLevel.SelectedIndex = level;
                 loadItems();
             }
         }

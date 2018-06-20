@@ -153,20 +153,21 @@ namespace Lavirint
                 {
                     MessageBox.Show("Congratulations!!!\nYou've just won a place at Hall of Fame!");
                     HighScores hs = new HighScores(parent, level);
+                    this.Close();
                     hs.Show();
                 }
                 else
                 {
                     MessageBox.Show(String.Format("Time: {0}:{1}\nCorrect Answers: {2}\nWrong Answers: {3}", game.min, game.sec, game.correctAnswers, game.wrongAnswers));
+                    this.Close();
+                    parent.Show();
                 }
-                this.Close();
-                parent.Show();
             }
         }
 
         public void updateScores()
         {
-            string path = (Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Scores.txt");
+            string path = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Scores.txt");
             string line = game.ToString();
             if (File.Exists(path))
             {
