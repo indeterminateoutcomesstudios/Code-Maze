@@ -376,7 +376,7 @@
             this.lstLevel.ItemHeight = 25;
             this.lstLevel.Items.AddRange(new object[] {
             "Easy",
-            "Meddium",
+            "Medium",
             "Hard"});
             this.lstLevel.Location = new System.Drawing.Point(82, 199);
             this.lstLevel.Name = "lstLevel";
