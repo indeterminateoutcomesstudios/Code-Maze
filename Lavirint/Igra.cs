@@ -55,31 +55,40 @@ namespace Lavirint
 
             if (e.KeyCode == Keys.Escape)
             {
-                timer.Stop();
-                DialogResult dr = MessageBox.Show("Do you want to save the game?", "Save game", MessageBoxButtons.YesNoCancel);
-                if (dr == DialogResult.Yes)
+                if ((game.min * 60 + game.sec > (game.lastsave + 2)) || game.lastsave==0)
                 {
-                    DialogResult d=saveFile();
-                    if (d == DialogResult.OK)
+                    timer.Stop();
+                    DialogResult dr = MessageBox.Show("Do you want to save the game?", "Save game", MessageBoxButtons.YesNoCancel);
+                    if (dr == DialogResult.Yes)
+                    {
+                        DialogResult d = saveFile();
+                        if (d == DialogResult.OK)
+                        {
+                            this.Close();
+                            timer.Stop();
+                            parent.Show();
+                        }
+                        else
+                        {
+                            timer.Start();
+                        }
+                    }
+
+                    if (dr == DialogResult.No)
                     {
                         this.Close();
                         timer.Stop();
                         parent.Show();
                     }
-                    else
-                    {
+                    if (dr == DialogResult.Cancel)
                         timer.Start();
-                    }
                 }
-
-                if (dr == DialogResult.No)
+                else
                 {
                     this.Close();
                     timer.Stop();
                     parent.Show();
                 }
-                if (dr == DialogResult.Cancel)
-                    timer.Start();      
             }
            
             if(e.KeyCode== Keys.S)
@@ -128,6 +137,7 @@ namespace Lavirint
             {
                 using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
                 {
+                    game.lastsave = game.min * 60 + game.sec;
                     IFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(fileStream, game);
                     

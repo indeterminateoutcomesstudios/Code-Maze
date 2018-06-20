@@ -20,6 +20,7 @@ namespace Lavirint
         public int correctAnswers { get; set; }
         public int wrongAnswers { get; set; }
         public int size { get; set; }
+        public int lastsave { get; set; }
 
         public Karakter karakter;
         public Labyrinth lavirint { get; set; }
@@ -37,6 +38,7 @@ namespace Lavirint
 
         public IgraDoc(string ime, string playerName,  int size)
         {
+            this.lastsave = 0;
             this.sec = 0;
             this.min = 0;
             this.correctAnswers = 0;
@@ -152,7 +154,7 @@ namespace Lavirint
             var astar = new Astar(lavirint.Curret, lavirint.Goal);
             var state = astar.Run();
 
-            MessageBox.Show("Correct!!!",String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())));
+            MessageBox.Show(String.Format("{0}", Labyrinth.GetDirections(astar.GetPath())), "Correct!!!");
         }
 
         private void pomestiEkran(KeyEventArgs e, Nasoka nasoka)
